@@ -1,0 +1,6 @@
+#include <stdio.h>
+int main ()
+{   int height,length;
+	printf("Height: %d Length: %d\n",height, length);
+	return 0;
+}
