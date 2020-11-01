@@ -33,7 +33,7 @@ int main(void)
  	
  	for (h = 1; h <= num ; h++){
  		for (j = 0; j < h; j++)
-          printf("* ");
+          printf("* ");//可修改
 		  printf("\n");
 		  	 }
 		  	 return 0;
