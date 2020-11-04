@@ -1,0 +1,79 @@
+#include <stdio.h>
+ int main()
+{
+
+
+	int date, month, year, days = 0;
+	int i;
+	int day;
+	for (int i = 2012; i != year; ++i)
+	{
+		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+			days += 366;
+		else
+			days += 365;
+	}
+	if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+		
+	for (int i = 1; i != month; ++i)
+	{
+
+	while(year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+	  scanf("29", &date);
+	  printf("");}
+    }    
+	
+	switch (month) {
+    case 1:  printf("");
+    break;
+    case 2:  printf("");  
+	break;
+    case 3:  printf("");     
+	break;
+    case 4:  printf("");     
+	break;
+    case 5:  printf("");       
+	break;
+    case 6:  printf("");      
+	break;
+    case 7:  printf("");      
+	break;
+    case 8:  printf("");    
+	break;
+    case 9:  printf(""); 
+	break;
+    case 10: printf("");   
+	break;
+    case 11: printf("");  
+	break;
+    case 12: printf("");  
+	break;
+	default: printf("Error\n");
+	break;
+  }
+	  
+	switch(day)
+	{
+	case 0: printf("星期一\n"); 
+	break;
+	case 1: printf("星期二\n"); 
+	break;
+	case 2: printf("星期三\n"); 
+	break;
+	case 3: printf("星期四\n"); 
+	break;
+	case 4: printf("星期五\n"); 
+	break;
+	case 5: printf("星期六\n"); 
+	break;
+	case 6: printf("星期日\n"); 
+	break;
+	default: printf("Error\n"); 
+	break;
+	}
+
+    
+    scanf("请输入年月日%d/%d/%d", &date, &month, &year);
+    printf("这天是星期%d", day);
+	getchar();
+	return 0;}
