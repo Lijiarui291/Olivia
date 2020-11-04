@@ -52,6 +52,7 @@
 	break;
   }
 	  
+	
 	switch(day)
 	{
 	case 0: printf("星期一\n"); 
