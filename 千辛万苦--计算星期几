@@ -95,5 +95,5 @@ int main()
     case 6:  printf("星期日");      
 	break;
   }
- return 0;
+  return 0;
 }
