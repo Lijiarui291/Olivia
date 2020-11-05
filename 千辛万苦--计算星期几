@@ -73,7 +73,7 @@ int main()
 	break;
   }
    printf(", %.4d.\n", year);
-   if((month == 1) || (month == 2))//如果是一月或二月进行换算
+   if((month == 1) || (month == 2))//如果是一月或二月进行换算 
    {
     month += 12;
     year--;
@@ -95,5 +95,5 @@ int main()
     case 6:  printf("星期日");      
 	break;
   }
-  return 0;
+ return 0;
 }
