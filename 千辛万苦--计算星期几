@@ -5,31 +5,31 @@ int main()
   
   printf("Enter date (日期 / 月份 / 年): ");
   scanf("%d/%d/%d", &day, &month, &year);
-  if(month > 12 || month <= 0) {
+  if((month > 12 )|| (month <= 0)) {
 		printf("Error");
 		return 0;
   }
   switch (month) {
     case 1: case 3: case 5: case 7: case 8: case 10: case 12:
-	if(day > 31 || day <= 0)
+	if((day > 31) || (day <= 0))//注意if的括号里没有引号
 		  {printf("Error");
 	      return 0;
 	      }
     break;
     case 2:
     if((year % 4 == 0 && year % 100 != 0) || year % 400 == 0){
-    	if(day > 29 || day <= 0)
+    	if((day > 29) || (day <= 0))
 		    {printf("Error");
 		    return 0;
 			}
 		}	
-	else if(day > 28 || day <= 0)
+	else if((day > 28) || (day <= 0))
 		     {printf("Error");
 		     return 0;
 			 }
     break;
     case 4: case 6: case 9: case 11:
-	if(day > 30 || day <= 0)
+	if((day > 30) || (day <= 0))
 		  {printf("Error");
 	      return 0;
 	      }
