@@ -54,6 +54,6 @@ int main(void)
   printf("*");//输符号               
   printf("\n");              
   n = n - 2;              
-  h++;     }          
+  h++;    }          
   return 0;
   }
