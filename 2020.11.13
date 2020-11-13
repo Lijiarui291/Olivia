@@ -1,0 +1,42 @@
+/*#include<stdio.h>
+
+int main(void)
+{
+	int n, sum = 0;
+	
+	printf("This program sums a series of integers.\n");
+	printf("Enter integers (0 to terminate):");
+	
+	scanf("%d", &n);
+	while (n != 0){
+		sum += n;
+		scanf("%d", &n);
+	}
+	printf("The sum is: %d\n", sum);
+	
+	return 0;
+}*/
+
+#include <stdio.h>
+int main (void)
+{   int m, M;//m为最小值，M为最大值
+    int a, counter = 0; 
+    printf("请输入四位数的最小值和最大值:");
+    scanf("%d/%d", &m, &M);
+	
+
+if((m % 2 == 0 ) && (M % 2 == 0))
+{
+	for(a = m; a <= M; a += 2)
+		if((a / 1000) != (a / 100 % 10) != (a / 10 % 10) != (a % 10))
+		{
+		counter++;
+		printf("%10d and %10d\n", a, counter);}
+		
+        }
+
+else
+    printf("Error");
+    
+return 0;	  
+}
