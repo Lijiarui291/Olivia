@@ -17,7 +17,7 @@ int main(void)
 	return 0;
 }*/
 
-#include <stdio.h>
+#include <stdio.h>//还未完善
 int main (void)
 {   int m, M;//m为最小值，M为最大值
     int a, counter = 0; 
