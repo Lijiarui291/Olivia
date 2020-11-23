@@ -1,0 +1,90 @@
+#include <stdio.h>
+int main()
+{
+	int j = 0;
+	char a[100];
+	gets(a);
+    while(a[j]){
+    	if((unsigned)a[j] > 0x7a){
+		  if((unsigned)a[j] == 0xffffffBC && a[j+1] == 0xffffffBD)
+		    {printf("%x", 0XE58680);}
+		  if((unsigned)a[j] == 0xffffffD4 && a[j+1] == 0xffffffA5)
+		    {printf("%x", 0XE8B1AB);}
+		  if((unsigned)a[j] == 0xffffffD4 && a[j+1] == 0xffffffC6)
+		    {printf("%x", 0XE4BA91);}
+		  if((unsigned)a[j] == 0xffffffC1 && a[j+1] == 0xffffffC9)
+		    {printf("%x", 0XE8BEBD);}	
+		  if((unsigned)a[j] == 0xffffffBA && a[j+1] == 0xffffffDA)
+		    {printf("%x", 0XE9BB91);}	
+		  if((unsigned)a[j] == 0xffffffCF && a[j+1] == 0xffffffE6)
+		    {printf("%x", 0XE6B998);}	
+		  if((unsigned)a[j] == 0xffffffCD && a[j+1] == 0xffffffEE)
+		    {printf("%x", 0XE79A96);}
+		  if((unsigned)a[j] == 0xffffffC2 && a[j+1] == 0xffffffB3)
+		    {printf("%x", 0XE9B281);}
+		  if((unsigned)a[j] == 0xffffffD0 && a[j+1] == 0xffffffC2)
+		    {printf("%x", 0XE696B0);}
+		  if((unsigned)a[j] == 0xffffffCB && a[j+1] == 0xffffffD5)
+		    {printf("%x", 0XE88B8F);}
+		  if((unsigned)a[j] == 0xffffffD5 && a[j+1] == 0xffffffE3)
+		    {printf("%x", 0XE6B599);}
+		  if((unsigned)a[j] == 0xffffffB8 && a[j+1] == 0xffffffD3)
+		    {printf("%x", 0XE8B5A3);}
+		  if((unsigned)a[j] == 0xffffffB6 && a[j+1] == 0xffffffF5)
+		    {printf("%x", 0XE98482);}
+		  if((unsigned)a[j] == 0xffffffB9 && a[j+1] == 0xffffffF0)
+		    {printf("%x", 0XE6A182);}
+	      if((unsigned)a[j] == 0xffffffB8 && a[j+1] == 0xffffffCA)
+		    {printf("%x", 0XE79498);}
+		  if((unsigned)a[j] == 0xffffffBD && a[j+1] == 0xffffffFA)
+		    {printf("%x", 0XE6998B);} 
+		  if((unsigned)a[j] == 0xffffffC3 && a[j+1] == 0xffffffC9)
+		    {printf("%x", 0XE89299);}
+		  if((unsigned)a[j] == 0xffffffC9 && a[j+1] == 0xffffffC2)
+		    {printf("%x", 0XE99995);}
+		  if((unsigned)a[j] == 0xffffffBC && a[j+1] == 0xffffffAA)
+		    {printf("%x", 0XE59089);}
+		  if((unsigned)a[j] == 0xffffffC3 && a[j+1] == 0xffffffF6)
+		    {printf("%x", 0XE997BD);}
+		  if((unsigned)a[j] == 0xffffffB9 && a[j+1] == 0xffffffF3)
+		    {printf("%x", 0XE8B4B5);}
+		  if((unsigned)a[j] == 0xffffffD4 && a[j+1] == 0xffffffC1)
+		    {printf("%x", 0XE7B2A4);}
+		  if((unsigned)a[j] == 0xffffffB4 && a[j+1] == 0xffffffA8)
+		    {printf("%x", 0XE5B79D);} 
+		  if((unsigned)a[j] == 0xffffffC7 && a[j+1] == 0xffffffE0)
+		    {printf("%x", 0XE99D92);}
+		  if((unsigned)a[j] == 0xffffffB2 && a[j+1] == 0xffffffD8)
+		    {printf("%x", 0XE8978F);}
+		  if((unsigned)a[j] == 0xffffffC7 && a[j+1] == 0xffffffED)
+		    {printf("%x", 0XE790BC);}
+		  if((unsigned)a[j] == 0xffffffC4 && a[j+1] == 0xffffffFE)
+		    {printf("%x", 0XE5AE81);}
+		  if((unsigned)a[j] == 0xffffffD3 && a[j+1] == 0xffffffE5)
+		    {printf("%x", 0XE6B89D);}
+		  if((unsigned)a[j] == 0xffffffBE && a[j+1] == 0xffffffA9)
+		    {printf("%x", 0XE4BAAC);}
+		  if((unsigned)a[j] == 0xffffffBD && a[j+1] == 0xffffffF2)
+		    {printf("%x", 0XE6B4A5);}
+		  if((unsigned)a[j] == 0xffffffBB && a[j+1] == 0xffffffA6)
+		    {printf("%x", 0XE6B2AA);}
+		  if((unsigned)a[j] == 0xffffffB9 && a[j+1] == 0xffffffD2)
+		    {printf("%x", 0XE68C82);}
+		  if((unsigned)a[j] == 0xffffffD1 && a[j+1] == 0xffffffA7)
+		    {printf("%x", 0XE5ADA6);}
+		  if((unsigned)a[j] == 0xffffffBE && a[j+1] == 0xffffffAF)
+		    {printf("%x", 0XE8ADA6);}
+		  if((unsigned)a[j] == 0xffffffB8 && a[j+1] == 0xffffffDB)
+		    {printf("%x", 0XE6B8AF);}
+		  if((unsigned)a[j] == 0xffffffB0 && a[j+1] == 0xffffffC4)
+		    {printf("%x", 0XE6BEB3);}
+		  if((unsigned)a[j] == 0xffffffCA && a[j+1] == 0xffffffB9)
+		    {printf("%x", 0XE4BDBF);}
+		  if((unsigned)a[j] == 0xffffffC1 && a[j+1] == 0xffffffEC)
+		    {printf("%x", 0XE9A286);}
+		  j += 2;
+		}
+    	else printf("%c", a[j]), j++;
+	}
+	return 0;
+}
