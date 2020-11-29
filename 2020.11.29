@@ -31,3 +31,14 @@ int main(void)
  	
  	return 0;
  }*/
+ 
+/* #include <stdio.h>
+ int main(void)
+ {
+ 	int x = 100;
+ 	
+ 	printf("dec = %d; octal = %o; hex = %x\n", x, x, x);//注意这里表示八进制的是o而不是0 
+ 	printf("dec = %#d; octal = %#o; hex = %#x\n", x, x, x);//如果这里输入的是0则不会输出对应的数字 
+ 	
+ 	return 0;
+ }*/
