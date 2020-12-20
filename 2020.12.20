@@ -89,7 +89,7 @@ int main(){
 	memset(a,0,sizeof(a));//清空数组
 
 	int size=0;
-	while(scanf("%c",&a[size++])!=EOF);//存入已输入的字符到数组str中 
+	while(scanf("%c",&a[size++])!=EOF);//存已输入的字符到数组str中 
 	string str=a;
 
 	//cout<<str<<" "<<str.size()<<endl; 
