@@ -54,7 +54,7 @@ int main() {
 
 }*/
 
-#include <stdio.h>
+/*#include <stdio.h>
 int main(){
 	int T, i=0;
 	scanf("%d", &T);
@@ -78,4 +78,6 @@ int main(){
 		return 0;
 	}
 	
-}
+}*/
+
+
