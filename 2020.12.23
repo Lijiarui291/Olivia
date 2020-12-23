@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <algorithm>
 using namespace std;
 
@@ -15,4 +15,48 @@ int main(){
 		printf("\n");
 	}
 	return 0;
+}*/
+
+//B: 分解质因数
+//请编写程序，将整数分解为若干个质数的乘积。
+//输入的第一行含一个正整数k，表示测试例的个数
+//后面紧接着k行，每行对应一个测试例，包含一个正整数x(2<=x<=10000)
+//每个测试例对应一行输出，输出x的质数乘积表示式，式中的质数从小到大排列
+//两个质数之间用“*”表示相乘
+
+/*#include<iostream>
+using namespace std;
+
+int A[10000];
+int is_sushu(int num){
+	int cnt=0;
+	while(num>1){
+	  for(int i=2;i<=num;i++){
+	  	if(num%i==0){
+	  		A[cnt]=i;
+	  		num/=i;
+	  		cnt++;
+	  		break;
+		  }
+	}
 }
+	return cnt;
+}
+
+int main(){
+	int k;
+	cin>>k;
+	while(k--){
+		int num;
+		cin>>num;
+		int cnt=is_sushu(num);
+		  for(int i=0;i<cnt;i++){
+		  	cout<<A[i];
+		  	if(i!=cnt-1){
+		  		cout<<"*";
+		   }
+		  }
+		  cout<<endl;
+	}
+	return 0;
+}*/
