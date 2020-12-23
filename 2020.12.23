@@ -1,0 +1,18 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(){
+	int n;
+	cin>>n;
+	while(n--){
+		string num;
+		cin>>num;
+		string mun=num;
+		reverse(num.begin(),num.end());
+		if(num==mun) printf("yes");
+		else printf("no");
+		printf("\n");
+	}
+	return 0;
+}
