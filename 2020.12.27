@@ -52,7 +52,7 @@ int main(){
 }*/
 
 
-#include<stdio.h>
+/*#include<stdio.h>
 
 struct st{   
 int x;
@@ -67,4 +67,4 @@ printf("%d\n",++p->x);
 //printf("%d\n", (++p)->x);
 printf("%d\n", (*p->y));
 return 0;
-}
+}*/
