@@ -1,0 +1,9 @@
+/*#include <stdio.h>
+int main(){
+	int x, y, z;
+	int sum;
+	scanf("%d%d%d", &x, &y, &z);
+	sum=x*0.2+y*0.3+z*0.5;
+	printf("%d", sum);
+	return 0;
+}*/
