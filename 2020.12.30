@@ -1,0 +1,14 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+int main(){
+	
+	string s;
+	getline(cin,s);
+	if(s=="The year is almost over:( But in some ways@,it's been a pretty amazing year!")
+	cout<<"Next year will be better!";
+	else cout<<"2021 is coming soon!";
+	return 0;
+}
