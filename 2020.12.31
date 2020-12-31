@@ -1,6 +1,6 @@
 /*C: 数字显示
 //用点阵的形式在字符界面上显示数字。数字按如下形式显示。每个数字占5列7行，数字和数字之间用2个空格隔开
-#include <stdio.h>
+/*#include <stdio.h>
 #include <math.h>
 void f();
 
@@ -57,4 +57,4 @@ void f()
   }
   printf("\n");
  }
-}
+}*/
