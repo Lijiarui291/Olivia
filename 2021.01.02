@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+ 
+int main(){
+	//输入数字后建立数组
+	//建立新的数组，把不同的存入新数组，计算个数
+	int n;
+	cin>>n;
+	int num[32];
+	int i=0;
+	for(i=0;i<n;i++){
+		cin>>num[i];
+	}
+	
+	int newnum[32];
+	int m=0;
+	int cnt=0;
+	int j=0;
+	for(i=0;i<n;i++){
+	if(m!=num[i]){
+		newnum[j]=num[i];
+		cnt++;
+		m=newnum[i];
+		j++;}
+	}
+	cout<<cnt;
+	return 0;
+	
+}
