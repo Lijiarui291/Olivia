@@ -2,7 +2,7 @@
 //给定一个整型数组，统计不同的元素的个数
 //每组输入占一行，每先给出正整数n（≤30），随后是n个整数，以空格分隔
 //输出占一行,以回车结束。输出不同的元素的个数
-#include <iostream>
+/*#include <iostream>
 using namespace std;
 
 int main(){
@@ -35,4 +35,4 @@ int main(){
 	
 	return 0;
 	
-}
+}*/
