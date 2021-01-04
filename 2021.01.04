@@ -27,7 +27,7 @@ int main(){
     string s10(j,'9');
     
     int sum=a+b+c+d+e+f+g+h+i+j;
-	//cout<<sum<<endl; 
+    //cout<<sum<<endl; 
     string s=s1+s2+s3+s4+s5+s6+s7+s8+s9+s10;
     //cout<<s<<endl;
     string s0=s.substr(0,a);
