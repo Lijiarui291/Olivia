@@ -1,0 +1,44 @@
+//A: 最小的数
+//给定0-9数字各若干个，以任意顺序排列这些数字
+//使得最后得到的数尽可能小（0 不能做首位）
+//在一行中给出 10 个非负整数，顺序表示数字 0、数字 1、……数字 9 的个数
+//整数间用一个空格分隔
+//10 个数字的总个数不超过 50，且至少拥有 1 个非 0 的数字
+//在一行中输出能够组成的最小的数
+
+/*#include<iostream>
+#include<string>
+#include<string.h>
+using namespace std;
+
+int main(){
+	int a,b,c,d,e,f,g,h,i,j;
+	cin>>a;cin>>b;cin>>c;cin>>d;cin>>e;cin>>f;cin>>g;cin>>h;cin>>i;cin>>j;
+	 
+    string s1(a,'0');
+    string s2(b,'1');
+    string s3(c,'2');
+    string s4(d,'3');
+    string s5(e,'4');
+    string s6(f,'5');
+    string s7(g,'6');
+    string s8(h,'7');
+    string s9(i,'8');
+    string s10(j,'9');
+    
+    int sum=a+b+c+d+e+f+g+h+i+j;
+	//cout<<sum<<endl; 
+    string s=s1+s2+s3+s4+s5+s6+s7+s8+s9+s10;
+    //cout<<s<<endl;
+    string s0=s.substr(0,a);
+    //cout<<s0<<endl;
+    string news=s.substr(a,a+1);
+    //cout<<news<<endl;
+    string new1=news.substr(0,1);
+    //cout<<new1<<endl;
+    string s12=s.substr(a+1,sum);
+    //cout<<s12<<endl;
+    s=new1+s0+s12;
+    cout<<s;
+    
+}*/
