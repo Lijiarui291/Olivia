@@ -1,4 +1,4 @@
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 int a[9][9],n;
 int try1(int ixc,int jxc,int kxc)
@@ -762,4 +762,4 @@ int main()
 		return main();
 	else
 		return 0;
-}
+}*/
