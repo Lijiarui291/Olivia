@@ -6,7 +6,7 @@
 //其中1<=N,K<=7,且矩阵A种每个元素 a满足: 1<=a<=7。
 
 //有一个测试点没过
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 
 int main(){
@@ -79,4 +79,4 @@ int main(){
 	}
 }
 	return 0;
-}
+}*/
