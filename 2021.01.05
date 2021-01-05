@@ -1,0 +1,82 @@
+//C: 矩阵的幂
+//给你一个N*N的矩阵A，计算矩阵A的K次方。也就是计算A*A…*A(K个A)。
+//输入
+//第一行为矩阵的阶数N,以及K次方。
+//接下来N行，每行有N个数，分别用空格分开。代表矩阵A。
+//其中1<=N,K<=7,且矩阵A种每个元素 a满足: 1<=a<=7。
+
+//有一个测试点没过
+#include<iostream>
+using namespace std;
+
+int main(){
+	int N;
+	cin>>N;
+	int r, c;//分别表示横纵
+	r=N,c=N;
+	int n;
+	cin>>n;
+	int nn=n-1;
+	int num[r][c];
+	int newnum[r][c];
+	int temp[r][c];
+	if(1<=N&&n<=7){
+	for(int r1=0;r1<N;r1++){
+		for(int c1=0;c1<N;c1++){
+			cin>>num[r1][c1];
+			if(num[r1][c1]>7||num[r1][c1]<1){
+				return 0;
+			}
+		}
+	}
+	
+	
+	for(int r1=0;r1<N;r1++){
+		for(int c1=0;c1<N;c1++){
+			newnum[r1][c1]=0;
+		}
+	}
+	for(int r1=0;r1<N;r1++){
+		for(int c1=0;c1<N;c1++){
+			temp[r1][c1]=num[r1][c1];
+		}
+	}
+    
+    while(nn--){
+	    int j=0;
+	    for(int r1=0;r1<N;r1++){
+		for(int c1=0;c1<N;c1++){
+			newnum[r1][c1]=0;
+		}
+	}
+		for(int r1=0;r1<N;r1++){
+			for(int c1=0;c1<N;c1++){
+				for(j=0;j<N;j++){
+					//cout<<num[r1][j]*num[j][c1];
+					//cout<<" ";
+					newnum[r1][c1]+=temp[r1][j]*num[j][c1];
+					
+				}
+					//cout<<newnum[r1][c1]<<" ";
+					//cout<<endl;
+				j=0;
+			}
+			int c1=0;
+	}
+	
+	for(int r1=0;r1<N;r1++){
+		for(int c1=0;c1<N;c1++){
+			num[r1][c1]=newnum[r1][c1];
+		}
+	}
+}
+	
+	for(int r1=0;r1<N;r1++){
+		for(int c1=0;c1<N;c1++){
+			cout<<newnum[r1][c1]<<" ";
+		}
+		cout<<endl;
+	}
+}
+	return 0;
+}
