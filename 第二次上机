@@ -373,14 +373,11 @@ int main(){
 	//建立数组来进行处理（冒泡排序作改编）
 	char A[200];
 	int a = 200;
-	
 	scanf("%d\n", &M);
 	fgets(A, a, stdin);
     A[strlen(A)-1]='\0';
     int len = strlen(A);
-	
 	for(i = 0; i <= len - 1; i++){
-	   
 	  if(i + M <= len - 1){
 	  //A[i + M]==A[i];
 	  printf("%c", A[i + M]);
