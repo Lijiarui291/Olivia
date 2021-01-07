@@ -313,3 +313,50 @@ for(x=1;x<r+1;x++)
     printf("\n");}
  return 0;
 }
+
+//E: n个不同整数的所有组合	
+#include <cstring>
+#include <iostream>
+
+using namespace std;
+
+void subset(int a[], int b[], int n,int len) //生成子集 共2^n个
+{
+
+
+    if (n == len)
+    {
+        cout << "-->";
+        for (int i = 0; i < len; i++)
+        {
+            if (b[i] == 1)
+                cout <<' '<< a[i];
+        }
+
+        cout<<endl;
+        return;
+    }
+    b[n] = 1;
+    subset(a, b, n + 1,len);
+
+    b[n] = 0;
+    subset(a, b, n + 1,len);
+}
+
+int main()
+{
+    int m;
+    cin>>m;
+    while(m--)
+    {
+        int n;
+        cin >> n;
+        int *number = new int[n];
+        int *b = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            cin >> number[i];
+        }
+
+        subset(number, b, 0, n);}
+		return 0;}
