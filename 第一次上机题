@@ -18,3 +18,44 @@ int year(int n,int a,int k){
 		else printf("Wrong Number");
 		return 0;
 	}
+
+
+//C: 查找字符串
+//判断字符串是否满足要求。如果字符串满足以下要求之一的字符串输出YES，否则输出NO：
+//1. 字符串等于“SCU”；
+//2. 形如“xSCUx”的字符串,其中x是仅由字母A组成的字符串
+//输入  每个测试输入包含1个测试用例。第1行给出一个自然数n (<10)，是需要检测的字符串个数
+//接下来每个字符串占一行，字符串长度不超过100，且不包含空格。 
+//输出  每个字符串的检测结果占一行，如果该字符串满足条件，则输出YES，否则输出NO
+#include <stdio.h>
+#include <string.h> 
+int main()
+{
+	int n, m;//n表示决定输入的字符数量,m表示实际输入的字符数量 
+	scanf("%d", &n);
+	
+	if(n>=10||n<0)
+	return 0;//对第一行数字进行判断
+	for(m=0;m<n;m++){
+	
+	
+//字符串长度不超过100且不包含空格
+//先分出SCU的情况
+//正向检索A检索到最后一个A的时候，下一个出现S,下一个出现U，再下一个出现C
+//其余情况输出NO
+    
+    char A[100];
+	scanf("%s", A);//声明一个数组
+    
+	int i=0, len=strlen(A);//i为脚标 ，len为数组字符数量 
+	
+	while(i<=(len-1)){
+	if(A[i]=='A'){i++;}	
+	if(A[i]=='S'&&A[i+1]=='C'&&A[i+2]=='U'){i+=3;}
+	if(A[i]!='A') break;
+   } 
+    if(i>(len-1)){printf("YES\n");}
+    else
+      printf("NO\n");}
+	return 0;
+} 
