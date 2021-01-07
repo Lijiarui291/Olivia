@@ -85,3 +85,48 @@ int main(){
 	//for(int i = 0; i < len - m; i++)ss[i + m] = s[i];
 	 
 return 0;}
+
+//C: 回文数(注意：这个练习告诉我们，应该多设置变量，最好在开头进行声明，后续再赋值，否则
+//易出现混淆 
+//程序中输入一个正整数(32位int可以存放下)，请判断他是否为回文数。
+#include <stdio.h>
+#include <string.h>
+int main(){
+	int n, i, j;//表示接下来要输入的样例数目和已输入的样例数目,以及字符串中的序号 
+	char A[10000];//A[10000]为正序
+	int x, a, y, b;
+	
+	scanf("%d", &n);
+	for(i = 0; i < n; i++){
+	scanf("%s", &A);
+	int len = strlen(A);
+	//分奇偶进行判断
+	//先判断奇数
+	
+	if(len % 2 != 0){
+		x = 0;
+		a = (len - 1)/2;//后续的判断
+		for(j = 0;j < a;j++){
+			if(A[j] == A[len - 1 - j])
+			x++;
+		}
+		if(x == a){printf("Yes\n");}
+		else
+		  printf("No\n"); 
+	}
+	//再判断偶数 
+	if(len % 2 == 0){
+		y = 0;
+		b = len/2;
+		for(j = 0; j < b; j++){
+			if(A[j] == A[len - 1 - j]) 
+			y++;
+			}
+		if(y == b) {
+		printf("Yes\n");}
+		else
+		  printf("No\n");
+	}
+}
+
+	return 0;}
