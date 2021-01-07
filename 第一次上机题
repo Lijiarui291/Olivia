@@ -94,4 +94,45 @@ int main()
     else
       printf("NO\n");}
 	return 0;
-} 
+}
+
+//D: 成绩排名
+//读入n名学生的姓名、身份证号、成绩，分别输出成绩最高和成绩最低学生的姓名和身份证号
+//注意：学生名单中可能缺考，没有成绩，表示为n/a.
+//每个测试输入包含1个测试用例，格式为  第1行：正整数n (1<=n<=100)
+//第2行：第1个学生的姓名 学号 成绩
+//第3行：第2个学生的姓名 学号 成绩 
+//输出  对每个测试用例输出2行，第1行是成绩最高学生的姓名和学号
+//第2行是成绩最低学生的姓名和学号，项与项之间有1个空格。如果成绩最高的学生有多个，输出姓名字典序最小的那个
+//如果成绩最低的有多个，输出姓名字典序最大的那个 
+#include <stdio.h>
+#include <string.h>
+int main(){
+	struct student{
+		char name[11];
+		char id[19];
+		int grade;	};
+        struct student A[10000];
+        int n,True=0;
+        scanf("%d",&n);
+        for(int i=0;i<n;i++){
+        	char R[5];
+			A[i].grade=-1;
+		scanf("%s %s %d",&A[i].name,&A[i].id,&A[i].grade);
+			if(A[i].grade==-1){gets(R);}
+			if(A[i].grade!=-1){True=1;} 
+		} 
+		if(True){
+		int min=100,max=0,i=0,a=0;
+		for(int j=0;j<n;j++){
+			if(A[j].grade==-1){continue;}
+			if(A[j].grade>max){max=A[j].grade;a=j;}
+			if(A[j].grade==max&&strcmp(A[j].name,A[a].name)<=0){max=A[j].grade;a=j;}
+			if(A[j].grade<min){min=A[j].grade;i=j;}
+			if(A[j].grade==min&&strcmp(A[j].name,A[i].name)>=0){min=A[j].grade;i=j;}
+		}
+		printf("%s %s\n",A[a].name,A[a].id);
+		printf("%s %s\n",A[i].name,A[i].id);
+		} 
+		return 0;
+}
