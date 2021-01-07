@@ -87,3 +87,48 @@ int main() {
       printf("ERROR");
 		return 0;
 }
+
+// D: 显示柱状图
+#include<iostream>
+#include<string>
+#include<cstdio>
+#include<algorithm>
+using namespace std;
+char table[31][40];
+int main(){
+	int m;//声明一个变量m，即表的宽度 
+	cin>>m;
+	for(int i=0;i<=30;i++)//表示高度 
+	{for(int j=0;j<40;j++)//表示宽 
+		{table[i][j]=' ';//先把所有的搞成空格 
+		}
+	}
+	for(int i=0;i<2*m-1;i++){
+		table[15][i]='-';//先把x轴搞成-号 
+	}
+	int top=15,bottom=15;//从中间开始往上下走 
+	for(int i=0;i<m;i++)//对输入进行操作 
+	{
+		int num;char c;
+		scanf("%d%c",&num,&c);
+		top=min(top,15-num);//最上面的行 
+		bottom=max(bottom,15-num);//最下面的行 
+		if(num<0){
+			for(int j=16;j<16-num;j++){
+				if(c==' '||c=='\n') table[j][2*i]='+';
+				else table[j][2*i]=c;
+			}
+		}
+		else if(num>0){
+			for(int j=14;j>14-num;j--){
+				if(c==' '||c=='\n') table[j][2*i]='+';
+				else table[j][2*i]=c;
+			}
+		}
+	}
+	for(int i=top;i<=bottom;i++){
+		for(int j=0;j<2*m-1;j++){printf("%c",table[i][j]);
+		}	printf("\n");
+	}
+	return 0;
+}
