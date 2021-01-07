@@ -132,3 +132,90 @@ int main(){
 	}
 	return 0;
 }
+
+//统计回文数
+#include<string.h>
+#include<iostream>
+#include<stdio.h>
+#include<algorithm> 
+using namespace std;
+
+string num[100000];//回文数存在这个数组里
+int cnt[100000];//相应脚标对应的回文数的出现次数
+int pos=0;//脚标
+string abc[100000];//表示新的数组，用来存最大数量的回文数的数组
+int kk=0;//脚标
+bool is_hui(string num){
+	if(num.size()<2||num[0]=='0')return false;
+	string a = num;
+	reverse(a.begin(),a.end());
+	if(a == num){
+		return true;
+	}
+	else
+	  return false;
+}//自己创了一个函数，用来判断回文数
+bool cmp(string _,string __){
+	if(_.size()<__.size())return true;
+	else if(_.size()==__.size()&&_<__)return true;
+	else return false;
+}//按照从小到大的顺序排序 
+int main(){
+	char a[1000000];
+	memset(a,0,sizeof(a));//清空数组
+	int size=0;
+	while(scanf("%c",&a[size++])!=EOF);//存入已输入的字符到数组str中 
+	string str=a;
+	//cout<<str<<" "<<str.size()<<endl; 
+	for(int i=0;i<str.size();i++){
+		//如果扫到了数字且开头不是0
+		if(str[i]>'0'&&str[i]<='9'){
+			int right;//声明最右端的脚标
+			for(right=i;right<str.size();right++){
+				if(str[right]<'0'||str[right]>'9'){
+					break;
+				}
+			}
+			right--;//因为跳出循环的条件是非数字，那么在考虑数字整体时需要减一
+			string temp=str.substr(i,right-i+1);//用temp字符串数组暂时存放提取出来的数字
+			//如果是回文数 
+			if(is_hui(temp)){
+				//cout<<temp<<endl;
+				int j=0;
+				for(j;j<pos;j++){
+					if(temp==num[j])break;
+				}
+				if(j==pos){
+					num[pos]=temp;
+					cnt[pos]=1;
+					pos++;
+				}else{
+					cnt[j]++;
+				}
+			}
+			i=right;
+		}
+	}
+	if(pos==0){
+		cout<<"None";
+		return 0;
+	}
+	
+	int x=cnt[0];
+	for(int i = 0;i < pos;i++){
+		if(cnt[i] >x) x = cnt[i];
+	}//可以用max函数
+	/*for(int i = 0;i < pos;i++){
+	      x=max(x, cnt[i]);}*/ 
+	/*for(int i = 0;i < pos;i++){
+		if(cnt[i] == x){abc[kk++] =num[i];}
+	}
+	sort(abc,abc+kk,cmp);// 第一个是要排序的数组的起始地址。
+    //第二个是结束的地址（最后一位要排序的地址）
+    //第三个参数是排序的方法，可以是从大到小也可是从小到大
+    //还可以不写第三个参数，此时默认的排序方法是从小到大排序。
+	for(int i=0;i<kk;i++){
+		cout<<abc[i]<<" "<<x<<endl;
+	}
+	return 0;
+}
