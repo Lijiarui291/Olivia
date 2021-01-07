@@ -51,3 +51,39 @@ int main(){
 		if(b > A[m - 1]){printf("%d", A[0]);}}
 	
 	return 0;}
+
+// C: 分解偶数
+// 任何大于6的偶数都可以分解成两个奇质数的和。
+//输入n，输出所有解，按小的在前，大的在后输出，不要重复。
+#include <stdio.h>
+
+int main() {
+	int n, i, x;//输入偶数
+	scanf("%d", &n);
+	int sum = 0;
+	int num = 0;
+    
+    if(n >= 6){
+	if (n % 2 != 0) { printf("ERROR"); }
+	if (n % 2 == 0) {
+		for (i = 3;i < n / 2;i++) {
+			sum = 0;num = 0;
+			if(i % 2 == 0) {
+				i++;}
+			if (i % 2 != 0) {
+				for(x = 2;x < i;x++){
+			    if(i % x != 0){sum++;}}
+			    for(x = 2;x < n - i;x++){
+			    if((n - i) % x != 0){num++;}
+				}
+				}
+				if(sum == i - 2 && num == n - i - 2){
+				printf("%d %d\n", i, n - i);
+			}
+			}
+		}
+}
+    else
+      printf("ERROR");
+		return 0;
+}
