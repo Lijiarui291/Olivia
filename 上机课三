@@ -17,3 +17,37 @@ int main(){
 	else printf("No\n");}   
 	return 0;
 }*/
+
+
+//B: 求绝对值最大的数
+//每行输入包含一个测试用例，第一个整数m(1<=m<=20)，表示随后有m个整数,各数之间用空格分隔。
+//每组输出占一行，输出绝对值最大的数。
+#include <stdio.h>
+#include <math.h>
+int main(){
+	int m; 
+	int i = 0;//表示数组脚标
+	int j, t;//用于冒泡排序 
+	scanf("%d", &m);
+	int A[m];
+	while (i < m){
+	scanf("%d", &A[i]);
+	i++;}
+	for(i = 0;i < m;i++){//从第一个开始比较 
+		for(j = i;j < m;j++){//第一次不会满足a[i]>a[j},因此进入j+1，再进行比较 
+			if(A[i] > A[j]){//这个是把第一个（之后是第二个......）和后面的每一个进行比较再排序 
+			int t = A[j];
+			A[j] = A[i];
+			A[i] = t;
+			}
+		}
+	
+	}
+	if((A[0] >= 0 && A[m - 1] >= 0) || (A[0] <= 0 && A[m - 1] <= 0)){
+		printf("%d", A[m - 1]);
+	}
+	if( (A[m - 1] >= 0 && A[0] <=0) ){int b = abs(A[0]);
+		
+		if(b > A[m - 1]){printf("%d", A[0]);}}
+	
+	return 0;}
