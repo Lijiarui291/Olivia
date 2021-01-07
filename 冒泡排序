@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main(void){
+	int N,i=0,j;
+	printf("Num:");
+	scanf("%d",&N);
+	int a[N];
+	while(i<N){
+		scanf("%d",&a[i]);
+		i++;
+	}//输入的控制 
+	for(j=0;j<N;j++){//从第一个开始比较 
+		for(i=j;i<N;i++){//第一次不会满足a[j]>a[i},因此进入i+1，再进行比较 
+			if(a[j]>a[i]){//这个是把第一个（之后是第二个......）和后面的每一个进行比较再排序 
+			int t=a[i];
+			a[i]=a[j];
+			a[j]=t;
+			}
+		}
+	}
+	for(j=0;j<N;j++)
+	printf("%d ",a[j]);
+	return 0;//检验是否按照顺序排列 
+}
