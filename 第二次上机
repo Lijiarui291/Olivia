@@ -228,3 +228,88 @@ for(x=1;x<r+1;x++)
     printf("\n");}
  return 0;
 }
+
+//D: 电子表格
+/*有一个r行c列(1<=r,c<=50)的电子表格，
+行从上到下编号为1~r，列从左到右编号是1~c
+SR x1 x2         SC y1 y2          DR x     DC y
+交换x1行和x2行  交换y1列和y2列    删除第x行  删除第y列
+IR x
+在第x行上面插入一行，新插入的行的所有单元格值为0
+IC y
+在第y列前面插入一列，新插入的列的所有单元格值为0*/
+//考虑建立二维数组
+#include<stdio.h>
+#include<string.h>
+int main(){
+int r,c,x,y,d,e,m,n,f,q;
+int k1,k2,k3,k4,k5,k6;
+int a[100][100]={00};
+char b[100];
+char g1[3]="SR";
+char g2[3]="SC";
+char g3[3]="DR";
+char g4[3]="DC";
+char g5[3]="IR";
+char g6[3]="IC";
+scanf("%d%d",&r,&c);
+if(r>=1&&c<=50)
+{for(x=1;x<r+1;x++)
+{for(y=1;y<c+1;y++)
+  {scanf("%d",&a[x][y]);} }}
+scanf("%d\n",&n);
+for(q=0;q<n;q++){
+scanf("%s",b);
+k1=strcmp(b,g1);k2=strcmp(b,g2);k3=strcmp(b,g3);k4=strcmp(b,g4);k5=strcmp(b,g5);
+k6=strcmp(b,g6);getchar();
+if(k1==0)
+{scanf("%d%d",&f,&m);getchar();
+ for(x=1;x<c+1;x++)
+ {d=a[f][x];e=a[m][x];a[f][x]=e;a[m][x]=d;}
+ }
+if(k2==0)
+{scanf("%d%d",&f,&m); getchar();
+ for(x=1;x<r+1;x++)
+ {d=a[x][f];e=a[x][m];a[x][f]=e;a[x][m]=d;}
+  }
+if(k3==0)
+{scanf("%d",&f);
+ getchar();
+ for(y=1;y<c+1;y++)
+  {for(x=f;x<r;x++)
+   a[x][y]=a[x+1][y];}
+r=r-1;
+}
+if(k4==0)
+{scanf("%d",&f);
+ getchar();
+ for(x=1;x<r+1;x++)
+  {for(y=f;y<c;y++)
+   a[x][y]=a[x][y+1];}
+c=c-1;
+}
+if(k5==0)
+{scanf("%d",&f);
+ getchar();
+ for(y=1;y<c+1;y++)
+  {for(x=r;x>f-1;x--)
+   {a[x+1][y]=a[x][y];}
+  a[f][y]=0;}
+r=r+1;
+}
+if(k6==0)
+{scanf("%d",&f);
+ getchar();
+ for(x=1;x<r+1;x++)
+  {for(y=c;y>f-1;y--)
+   {a[x][y+1]=a[x][y];}
+  a[x][f]=0;}
+c=c+1;
+}
+}
+for(x=1;x<r+1;x++)
+ {for(y=1;y<c+1;y++)
+    {printf("%d ",a[x][y]);}
+    printf("\n");}
+ return 0;
+}
