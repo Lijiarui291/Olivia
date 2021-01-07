@@ -1,0 +1,20 @@
+//A: 递归法算年龄
+//输入  输入三个正整数n、a和k（0<n,a,k<=100,n>=2）
+//分别代表摆龙门阵的小伙伴的人数、第一号小伙伴的年龄和相邻编号小伙伴的年龄差 
+//输出  若输入数据不合题意，输出Wrong Number ,否则输出第n号小伙伴的年龄 
+
+#include <stdio.h>
+int year(int n,int a,int k){
+	if(n==1){return a;}
+	else return k+year(n-1,a,k);} 
+	int main(){
+		int n,a,k;
+		scanf("%d",&n);
+		scanf("%d",&a);
+		scanf("%d",&k);
+		if(n>0&&n>=2&&a>0&&k>0&&a<=100&k<=100){
+		printf("%d",year(n,a,k));
+		return 0;}
+		else printf("Wrong Number");
+		return 0;
+	}
