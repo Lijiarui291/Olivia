@@ -1,3 +1,4 @@
+//单词逆序
 #include <iostream>
 #include <algorithm>
 using namespace std;
