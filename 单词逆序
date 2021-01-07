@@ -1,0 +1,26 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(){
+	string str;
+	getline(cin,str);
+	
+	int i;
+	for(i=0;i<str.size();i++){
+		if(str[i]>='a'&&str[i]<='z'||str[i]>='A'&&str[i]<='Z'){
+			int right;
+			for(right=i;right<str.size();right++){
+				if(str[right]<'A'||str[right]>'Z'&&str[right]<'a'||str[right]>'z'){
+					break;
+				}
+			}
+			right--;
+			string temp=str.substr(i,right-i+1);
+			reverse(temp.begin(),temp.end());
+			cout<<temp;
+			i=right;
+		}
+		else printf("%c", str[i]);
+		
+	}
