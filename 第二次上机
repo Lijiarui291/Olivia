@@ -102,25 +102,18 @@ int main(){
 		x = 0;
 		a = (len - 1)/2;//后续的判断
 		for(j = 0;j < a;j++){
-			if(A[j] == A[len - 1 - j])
-			x++;
-		}
+			if(A[j] == A[len - 1 - j])  x++;}
 		if(x == a){printf("Yes\n");}
-		else
-		  printf("No\n"); 
+		else  printf("No\n"); 
 	}
 	//再判断偶数 
 	if(len % 2 == 0){
-		y = 0;
-		b = len/2;
+		y = 0;b = len/2;
 		for(j = 0; j < b; j++){
 			if(A[j] == A[len - 1 - j]) 
-			y++;
-			}
-		if(y == b) {
-		printf("Yes\n");}
-		else
-		  printf("No\n");
+			y++;}
+		if(y == b) {printf("Yes\n");}
+		else  printf("No\n");
 	}
 }
 	return 0;}
