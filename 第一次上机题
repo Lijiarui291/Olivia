@@ -136,3 +136,72 @@ int main(){
 		} 
 		return 0;
 }
+
+//E: 查找成绩排名
+//读入n名学生的姓名、身份证号、成绩。
+//查找并输出匹配查找串的学生的姓名和学号和成绩。学生名单中可能缺考，没有成绩，表示为n/a
+//如果查找串是针对姓名或者身份证号，则是模糊查找
+//即只要其中包含查找串(区分大小写)即算满足条件，如果查找串是针对成绩，则是精确查找。
+//输出  输出包含相应查找串的学生信息(姓名 学号 成绩  排名)(如果成绩为n/a，则排名就为n/a)
+//项之间用空格隔开。每个学生一行。其中排名是按照成绩降序排列的排名。
+//如果有多个学生的成绩相同，则这些学生的排名相同，并且随后的几个排名将跳过。
+//满足条件的多个学生按照输入的顺序输出
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+int main(){
+	struct student{
+		char name[11];
+		char id[19];
+		int grade;
+		int rank;	};
+        struct student A[1000],W;
+        int n,len;
+        char str1[20],str2[20];
+        scanf("%d %s",&n,&str1);
+        len=strlen(str1);
+        for(int i=0;i<n;i++){
+        	char R[5];
+			A[i].grade=-1;
+		scanf("%s %s %d",&A[i].name,&A[i].id,&A[i].grade);
+			if(A[i].grade==-1){gets(R);}
+		} 
+		for(int a=0;a<n;a++){
+			for(int b=a;b<n;b++){
+				if(A[a].grade<A[b].grade){
+					W=A[a];
+					A[a]=A[b];
+					A[b]=W;
+				}
+				A[a].rank=a;
+				if(a>0&&A[a].grade==A[a-1].grade){A[a].rank=A[a-1].rank;}
+			}
+		}
+		for(int a=0;a<n;a++){
+			for(int b=0;b<20;b++){
+				for(int m=0,c=b;c<b+len;c++,m++){
+					str2[m]=A[a].id[c]; 
+							}
+			if(strcmp(str1,str2)==0){
+			printf("%s %s ",A[a].name,A[a].id);
+			if(A[a].grade==-1){printf("n/a n/a\n");}
+			else {printf("%d %d\n",A[a].grade,A[a].rank+1);}
+			goto A;}
+				}
+			for(int b=0;b<20;b++){
+				for(int m=0,c=b;c<b+len;c++,m++){
+					str2[m]=A[a].name[c];}            
+				if(strcmp(str1,str2)==0){
+			    printf("%s %s ",A[a].name,A[a].id);
+			    if(A[a].grade==-1){printf("n/a n/a\n");}
+			    else printf("%d %d\n",A[a].grade,A[a].rank+1);
+				goto A;}   
+				}
+			    if(atoi(str1)==A[a].grade){
+			printf("%s %s %d %d",A[a].name,A[a].id,A[a].grade,A[a].rank+1);
+			goto A;
+			} 
+			A:;
+			}
+		return 0;
+		}
