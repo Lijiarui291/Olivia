@@ -50,3 +50,38 @@ int main() {
 	}
 	return 0;
 }
+
+//B:字符串右移问题 
+#include <stdio.h>
+#include <string.h>
+int main(){
+	//将一个字符串循环向左移M（M>=0）个字符位置，
+	//即将字符串A中的数据由（A0 A1……AN-1）
+	//变换为（AN-M …… AN-1 A0 A1……AN-M-1）
+	//（N是字符串的长度，最后M个数循环移至最前面的M个位置）
+	//每个输入包含一个测试用例，第1行输入M（M>=0）；第2行为输入字符串，长度不超过200。
+    int M, i;
+	int j = 0;//声明输入的希望左移的字符位置和数组的脚标 
+	//建立数组来进行处理（冒泡排序作改编）
+	char A[200];
+	int a = 200;
+	
+	
+	scanf("%d\n", &M);
+	fgets(A, a, stdin);
+    A[strlen(A)-1]='\0';
+    int len = strlen(A);
+	
+	for(i = len - M;i <= len - 1;i++){
+	  
+	  printf("%c", A[j + len - M]);
+	  j++;}
+
+	for(i = 0;i < len - M;i++){
+		printf("%c", A[i]);
+	}
+	  
+	//for(int i = len - m; i < len; i++)ss[i - len +  m] = s[i];
+	//for(int i = 0; i < len - m; i++)ss[i + m] = s[i];
+	 
+return 0;}
