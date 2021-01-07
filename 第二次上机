@@ -65,8 +65,7 @@ int main(){
 	//建立数组来进行处理（冒泡排序作改编）
 	char A[200];
 	int a = 200;
-	
-	
+
 	scanf("%d\n", &M);
 	fgets(A, a, stdin);
     A[strlen(A)-1]='\0';
