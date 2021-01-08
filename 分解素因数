@@ -1,0 +1,35 @@
+//C: 分解质因数
+//输入  输入的第一行含一个正整数k，表示测试例的个数，后面紧接着k行
+//每行对应一个测试例，包含一个正整数x(2<=x<=10000) 
+//输出  每个测试例对应一行输出，输出x的质数乘积表示式，式中的质数从小到大排列
+//两个质数之间用“*”表示相乘。中间不要添加任何空格
+#include<iostream>
+using namespace std;
+
+int fenjiesuyinshu(int x){
+	int i;
+	while(x!=1){
+	for(i=2;i<=x;i++){
+		if(x%i==0){
+			printf("%d", i);
+			x/=i;
+			if(x!=1){
+				printf("*");
+			}
+			break;
+		}
+	}
+}
+	return 0;
+}
+int main(){
+	int k;
+	cin>>k;
+	while(k--){
+		int x;
+		cin>>x;
+		fenjiesuyinshu(x);
+		printf("\n");
+	}
+	return 0; 
+}
