@@ -1,0 +1,56 @@
+//A: 排序四个整数
+/*#include <stdio.h>
+
+int main() {
+
+    int n, i;
+
+    scanf("%d", &n);  // 有n组数据
+
+    for (i = 0; i < n; i++) {
+
+        int a, b, c, d;
+        
+        // 读入4个整数，对这4个整数排序，并输出结果
+
+        // 请将排序代码写在这里，不能使用循环语句
+        scanf("%d%d%d%d", &a, &b, &c, &d);
+        int t;
+        if(a>b){
+        	t=b;
+        	b=a;
+        	a=t;
+		}
+		if(a>c){
+        	t=c;
+        	c=a;
+        	a=t;
+		}
+		if(a>d){
+        	t=d;
+        	d=a;
+        	a=t;
+		}
+		if(b>c){
+        	t=c;
+        	c=b;
+        	b=t;
+		}
+		if(b>d){
+        	t=d;
+        	d=b;
+        	b=t;
+		}
+		if(c>d){
+        	t=d;
+        	d=c;
+        	c=t;
+		}
+        
+    printf("%d %d %d %d", a, b, c, d);
+	printf("\n");   
+    }
+
+    return 0;
+
+}*/
