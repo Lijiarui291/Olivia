@@ -21,3 +21,49 @@ int main(){
 		cout<<"Wrong Number";
 	return 0; 
 }*/
+
+#include<iostream>
+using namespace std;
+
+int main(){
+	int A[100][5];
+	int r=0;//表示行 
+	int c=0;//表示列
+	int cnt=0; 
+	for(r=0;r<100;r++){
+		for(c=0;c<5;c++){
+			cin>>A[r][c];
+		}
+		if(A[r][0]==0&&A[r][1]==0&&A[r][2]==0&&A[r][3]==0&&A[r][4]==0){
+			break;
+		}
+		cnt++;
+	}
+	for(r=0;r<cnt;r++){
+		int d1=A[r][1]-A[r][0];
+		if(A[r][2]-A[r][1]==d1&&A[r][3]-A[r][2]==d1&&A[r][4]-A[r][3]==d1){
+			cout<<"case one"<<endl;
+			cout<<A[r][4]+d1<<" ";cout<<A[r][4]+2*d1<<" ";cout<<A[r][4]+3*d1<<" ";
+			cout<<A[r][4]+4*d1<<" ";cout<<A[r][4]+5*d1;
+			cout<<endl;
+			continue;
+		}
+	
+		if(A[r][2]*A[r][2]==A[r][1]*A[r][3]&&A[r][3]*A[r][3]==A[r][4]*A[r][2]){
+			cout<<"case two"<<endl;
+			int d=A[r][4]/A[r][3];
+			cout<<d*A[r][4]<<" ";cout<<d*d*A[r][4]<<" ";cout<<d*d*d*A[r][4]<<" ";
+			cout<<d*d*d*d*A[r][4]<<" ";cout<<d*d*d*d*d*A[r][4];
+			cout<<endl;
+			continue;
+		}
+		if(A[r][2]==A[r][1]+A[r][0]&&A[r][3]==A[r][2]+A[r][1]&&A[r][4]==A[r][3]+A[r][2]){
+			cout<<"case three"<<endl;
+			cout<<A[r][3]+A[r][4]<<" ";cout<<A[r][3]+2*A[r][4]<<" ";cout<<2*A[r][3]+3*A[r][4]<<" ";
+			cout<<3*A[r][3]+5*A[r][4]<<" ";cout<<5*A[r][3]+8*A[r][4];
+			cout<<endl;
+			continue;
+		}
+		}
+		return 0;
+	}
