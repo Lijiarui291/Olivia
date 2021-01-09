@@ -1,0 +1,23 @@
+/*#include<iostream>
+using namespace std;
+int nianling(int n,int a, int k){
+	if(n==1){
+		return a;
+	}
+	else{
+		return k+nianling(n-1,a,k);
+	}
+}
+
+int main(){
+	int n;//表示人数
+	int a;//表示一号的年龄
+	int k;//表示年龄差
+	cin>>n;cin>>a;cin>>k;
+	if(0<a&&a<=100&&k>0&&k<=100&&n>=2){
+		cout<<nianling(n,a,k);
+	}
+	else
+		cout<<"Wrong Number";
+	return 0; 
+}*/
