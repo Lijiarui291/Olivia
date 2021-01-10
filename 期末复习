@@ -38,3 +38,32 @@ int main(){
 	return 0;
 
 }*/
+
+
+/*#include<iostream>
+#include<string>
+#include<string.h>
+#include<algorithm>
+using namespace std;
+
+int main(){
+	int n;
+	cin>>n;
+	while(n--){
+		string shu;
+		cin>>shu;
+		//cout<<shu;
+		string shu1=shu;
+		reverse(shu1.begin(),shu1.end());
+		//cout<<shu1;
+		if(shu1==shu){
+			cout<<"Yes";
+			cout<<endl;
+		}
+		else{
+			cout<<"No";
+			cout<<endl;
+		}
+	}
+	return 0;
+}*/
