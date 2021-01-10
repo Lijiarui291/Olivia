@@ -67,3 +67,27 @@ int main(){
 	}
 	return 0;
 }*/
+
+/*#include<iostream>
+using namespace std;
+
+int main(){
+	int n;
+	cin>>n;
+	while(n--){
+		int a,b,c;
+		cin>>a;
+		cin>>b;
+		cin>>c;
+		if(a+b>c&&a-b<c||a+c>b&&a-c<b||b+c>a&&b-c<a){
+				if(a*a+b*b==c*c||a*a+c*c==b*b||b*b+c*c==a*a){
+					printf("Yes");
+					cout<<endl;
+				}
+				else {cout<<"No";cout<<endl;}
+			}
+		else {cout<<"No";cout<<endl;}
+	}
+	return 0;
+}*/
+
