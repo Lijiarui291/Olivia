@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	static int i=50;
+	i++;
+	cout<<i<<endl;
+	const int x=100;
+	//x++;
+	cout<<x<<endl;
+	int A[10]={123,11};
+	cout<<A[0]<<" ";
+	cout<<A[1]<<endl;
+	int B[10]={1};
+	cout<<B[0]<<" ";
+	cout<<B[1]<<endl;
+	char C[10]="abcd";
+	cout<<C[0]<<" ";
+	cout<<C[1]<<endl;
+	char D[10]="a,b,c";
+	cout<<D[0]<<" ";
+	cout<<D[1]<<endl;
+	char E[10]={'a','b','c'};
+	cout<<E[0]<<" ";
+	cout<<E[1]<<endl;
+	char F[10]={"abcde"};
+	cout<<E[0]<<" ";
+	cout<<E[1]<<endl;
+	return 0;
+} 
