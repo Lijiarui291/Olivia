@@ -11,3 +11,29 @@ int main(){
 	cout<<x;
 	return 0;
 }*/
+
+/*#include<iostream>
+#include<string>
+#include<string.h>
+using namespace std;
+
+int main(){
+	int n;
+	cin>>n;
+	char c;
+	string str1;
+	cin.get(c);
+	getline(cin,str1);
+	//int x=str1.length();
+	int x=str1.size();//两种均可 
+	x-=n;
+	string str2=str1.substr(x);
+	//cout<<str2;
+	string str3=str1.substr(0,x);
+	//cout<<str3;
+	str1=str2+str3;
+	cout<<str1; 
+	
+	return 0;
+
+}*/
