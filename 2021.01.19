@@ -162,3 +162,34 @@ int main() {
 	return 0;
 }*/
 
+
+//洛谷 函数与结构体p1304 
+/*#include<iostream>
+using namespace std;
+int fenjiesuyinshu(int i) {
+	int cnt = 0;
+	for (int k = 2;k < i;k++) {
+		if (i % k == 0) {
+			return 0;
+			break;
+		}
+		else cnt++;
+		if (cnt == i - 2) { return 1; }
+	}
+}
+int main(){
+	int N;
+	cin >> N;
+	for (int i = 4;i <= N;i += 2) {
+		for (int j = 2;j < i;j++) {
+			if (fenjiesuyinshu(j) && fenjiesuyinshu(i - j)) {
+				cout << i << "=";
+				cout << j << "+";
+				cout << i - j << endl;
+				break;
+			}
+		}
+	}
+	return 0;
+}*/
+
