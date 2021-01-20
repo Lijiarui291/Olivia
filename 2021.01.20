@@ -24,3 +24,29 @@ int main() {
 	
 	return 0;
 }*/
+
+
+//洛谷 字符串p1321
+/*#include<iostream>
+#include<string.h>
+#include<string>
+using namespace std;
+
+int main() {
+	int cntboy = 0;
+	int cntgirl = 0;
+	char zifuchuan[256];
+	cin >> zifuchuan;
+	int len = strlen(zifuchuan);
+	for (int i = 0;i < len;i++) {
+		if (zifuchuan[i] == 98 || zifuchuan[i + 1] == 111 || zifuchuan[i + 2] == 121) {
+			cntboy++;
+		}
+		if (zifuchuan[i] == 103 || zifuchuan[i + 1] == 105 || zifuchuan[i + 2] == 114 || zifuchuan[i + 3] == 108) {
+			cntgirl++;
+		}
+	}
+	cout << cntboy << endl;
+	cout << cntgirl;
+	return 0;
+}*/
