@@ -32,3 +32,22 @@ int main() {
 	cout << num[n];
 	return 0;
 }*/
+
+
+//洛谷 p1923 
+/*#include<bits/stdc++.h>
+using namespace std;
+int num[5000005];
+int main()
+{
+	int N;
+	int k;
+	cin>>N;
+	cin>>k;
+	
+	for(int i=0;i<N;i++){
+		scanf("%d", &num[i]);
+	}
+	nth_element(num,num+k,num+N);
+	cout<<num[k];
+}*/
