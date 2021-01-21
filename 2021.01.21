@@ -1,0 +1,34 @@
+//洛谷p1923
+/*#include<iostream>
+#include<algorithm>
+using namespace std;
+int newnum[5000];
+int main() {
+	int N;
+	int n;
+	cin >> N;cin >> n;
+	int num[5000];
+	for (int i = 0;i < N;i++) {
+		cin >> num[i];
+	}
+	
+	int k = 0;
+	int kk = 0;
+
+	for (int i = 0;i < N;i++) {
+		for (int j = 0;j < i;j++) {
+			if (num[i] == num[j]) {
+				break;
+			}
+			else k++;
+		}
+		if (k == i) {
+			newnum[kk] = num[i];
+			kk++;
+		}
+		k = 0;
+	}
+	sort(newnum, newnum + kk);
+	cout << num[n];
+	return 0;
+}*/
