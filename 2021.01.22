@@ -58,3 +58,34 @@ int main() {
 	
 	return 0;
 }*/
+
+
+//洛谷 p2669(但是有两个测试点出现TLE) 
+/*#include<iostream>
+using namespace std;
+
+int main() {
+	long long K;
+	cin >> K;
+	int KK = K;
+	long long cnt = 0;
+	long long CNT[100000];
+	int k = 0;
+	int m = 1;
+	int mm = 0;
+	int summ = 0;
+	while(K - m >= 0) {
+		for (int i = 0;i < m;i++) {
+			cnt += m;
+			CNT[k] = cnt;
+			k++;
+		}
+		m++;
+		K--;
+		mm++;
+		summ += mm;
+	}
+	cout << CNT[KK - 1];
+	
+	return 0;
+}*/
