@@ -20,3 +20,41 @@ int main() {
 	cout << cnt;
 	return 0;
 }*/
+
+
+//洛谷 p2669 
+/*#include<iostream>
+using namespace std;
+
+int main() {
+	long long K;
+	cin >> K;
+	int KK = K;
+	long long cnt = 0;
+	int kk = 0;
+	int m = 1;
+	int mm = 0;
+	int summ = 0;
+	while(KK >= kk) {
+		for (int i = 0;i < m;i++) {
+			cnt += m;
+			//cout << " cnt = "<< cnt << endl;
+			kk++;
+		}
+		m++;
+		//cout << " m = "<< m << endl;
+		K--;
+		//cout << " K = "<< K << endl;
+		mm++;
+		summ += mm;
+	}
+	//cout << "最终的cnt= "<< cnt;
+	if(summ - KK > 0){
+		cnt -= (summ - KK) * mm;
+	}
+	//cout << " summ = "<< summ << endl;
+	//cout << " mm = "<< mm << endl;
+	cout << cnt;
+	
+	return 0;
+}*/
