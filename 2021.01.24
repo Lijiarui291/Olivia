@@ -1,0 +1,21 @@
+//洛谷 p1255（只过了四个测试点，其他测试点都是TLE)
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+long long way(int N) {
+	if (N == 1) {
+		return 1;
+	}
+	if (N == 2) {
+		return 2;
+	}
+	else return way(N - 1) + way(N - 2);
+}
+
+int main() {
+	long long N;
+	scanf("%d", &N);
+	long long NN = way(N);
+	printf("%d", NN);
+	return 0;
+}
