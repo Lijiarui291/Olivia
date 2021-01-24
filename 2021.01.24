@@ -2,6 +2,7 @@
 #include<iostream>
 #include<stdio.h>
 using namespace std;
+
 long long way(int N) {
 	if (N == 1) {
 		return 1;
