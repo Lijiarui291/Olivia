@@ -1,0 +1,82 @@
+//洛谷 p1225 
+#include<iostream>
+using namespace std;
+char initial[6][6];
+char fin[6][6];
+int chan[100][4];
+
+int main() {
+	char* poi[6][6];
+	for (int i = 1;i < 5;i++) {
+		for (int j = 1;j < 5;j++) {
+			cin >> initial[i][j];
+			poi[i][j] = &initial[i][j];
+		}
+	}
+	for (int j = 1;j < 5;j++){
+		initial[0][j]=*poi[2][j];poi[0][j]=&initial[0][j];
+		}
+	for (int j = 1;j < 5;j++) {
+		initial[5][j] = *poi[3][j];poi[3][j] = &initial[5][j];
+	}
+	for (int i = 1;i < 5;i++) {
+		initial[i][0] = *poi[i][2];poi[i][2] = &initial[i][0];
+	}
+	for (int i = 1;i < 5;i++) {
+		initial[i][5] = *poi[i][3];poi[i][3] = &initial[i][5];
+	}
+	for (int i = 1;i < 5;i++) {
+		for (int j = 1;j < 5;j++) {
+			cin >> fin[i][j];
+		}
+	}
+	int k = 0;
+	int kk = 0;
+	int m = 0;
+	for (k = 1;k < 5;k++) {
+		for (kk = 1;kk < 5;kk++) {
+			if (initial[k][kk] == fin[k][kk]) { continue; }
+			else{
+				if (initial[k-1][kk]==fin[k][kk]&&initial[k][kk]==fin[k-1][kk]) {
+					chan[m][0] = k - 1;chan[m][1] = kk;chan[m][2] = k;chan[m][3] = kk;
+					*poi[k - 1][kk] = initial[k][kk];*poi[k][kk] = initial[k - 1][kk];
+				}
+				if (initial[k+1][kk] == fin[k][kk] && initial[k][kk] == fin[k+1][kk]) {
+					chan[m][0] = k;chan[m][1] = kk;chan[m][2] = k+1;chan[m][3] = kk;
+					*poi[k+1][kk] = initial[k][kk];*poi[k][kk] = initial[k+1][kk];
+			
+				}
+				if (initial[k][kk+1] == fin[k][kk] && initial[k][kk] == fin[k][kk+1]) {
+					chan[m][0] = k;chan[m][1] = kk;chan[m][2] = k;chan[m][3] = kk+1;
+					*poi[k][kk+1] = initial[k][kk];*poi[k][kk] = initial[k][kk+1];
+					kk++;
+				}
+				if (initial[k][kk-1] == fin[k][kk] && initial[k][kk] == fin[k][kk-1]) {
+					chan[m][0] = k ;chan[m][1] = kk-1;chan[m][2] = k;chan[m][3] = kk;
+					*poi[k][kk-1] = initial[k][kk];*poi[k][kk] = initial[k][kk-1];
+				}
+				m++;
+			}
+		}
+	}
+	int cnt = m;
+	for (int mm = 0;mm <= m-1;mm++) {
+		if(chan[mm][2]==chan[mm+1][0]&&chan[mm][3]==chan[mm+1][1]){
+		for(int i = mm;i < m - 1;i++){
+			for(int mmm = 0;mmm < 4;mmm++){
+				chan[i][mmm] = chan[i + 1][mmm];
+			}
+		}
+		m--;
+		}
+	}
+	cout << m << endl;
+	for (int mm = 0;mm < m;mm++) {
+		for (int mmm = 0;mmm < 4;mmm++) {
+			cout << chan[mm][mmm];
+			}
+	cout << endl;
+	}
+	return 0;
+	
+}
