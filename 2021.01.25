@@ -1,4 +1,4 @@
-//洛谷 p1225 
+//洛谷 p1225（没有AC哦，题解好像也看不太懂呜呜，加油哦）
 #include<iostream>
 using namespace std;
 char initial[6][6];
