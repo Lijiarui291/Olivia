@@ -31,3 +31,23 @@ int main() {
 	printf("%.2f", maxx);
 	return 0;
 } 
+
+
+//洛谷 p5735(用了pow函数)
+/*#include<iostream>
+#include<stdio.h>
+#include<math.h>
+using namespace std;
+
+int main() {
+	double pos[6];
+	for (int i = 0;i < 6;i++) {
+		cin >> pos[i];
+	}
+	double dis[3];
+	dis[0] = pow(pow(pos[2] - pos[0], 2) + pow(pos[3] - pos[1], 2), 0.5);
+	dis[1] = pow(pow(pos[4] - pos[2], 2) + pow(pos[5] - pos[3], 2), 0.5);
+	dis[2] = pow(pow(pos[4] - pos[0], 2) + pow(pos[5] - pos[1], 2), 0.5);
+	printf("%.2f", dis[0] + dis[1] + dis[2]);
+	return 0;
+}*/
