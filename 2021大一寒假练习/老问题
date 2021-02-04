@@ -1,0 +1,58 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int num[201];
+int tem[201];
+int fin[201];
+int n;
+int k;
+int cnt;
+int he;
+int mi = 1;
+int diji;
+int cntt;
+void res(int shenghe,int nowjiwei,int ii) {
+	int noww = nowjiwei;
+	//如果不是最后一位的话
+	if (nowjiwei != k - 1) {
+		//对于第零位的控制
+		for (int i = ii;i < shenghe - k + 2;i++) {
+			tem[noww] = i;
+			shenghe -= i;
+			res(shenghe, nowjiwei + 1,ii);
+		}
+	}
+	else {
+		tem[k - 1] = shenghe;
+		sort(tem, tem + k);
+		for (int m = 0;m < k;m++) {
+			mi *= 10;
+			he += tem[m] * mi;
+		}
+		num[diji] = he;
+		diji++;
+		ii++;
+		he = 0;
+		res(shenghe, nowjiwei + 1, ii);
+	}
+}
+
+int main() {
+	cin >> n;
+	cin >> k;
+	res(n,0,1);
+	for (int mm = 0;mm < diji;mm++) {
+		for (int mmm = mm + 1;mmm < diji;mmm++) {
+			if (num[mm] == num[mmm]) {
+				break;
+			}
+			else cntt++;
+		}
+		if (cntt == diji - mm) {
+			fin[mm] = num[mm];
+			cnt++;
+		}
+	}
+	cout << cnt;
+	return 0;
+}
