@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	long long int Num[10000];
+	long long int min, max;
+	cin >> min;cin >> max;
+	int cou0 = 0, cou1 = 0, cou2 = 0, cou3 = 0, cou4 = 0, cou5 = 0, cou6 = 0, cou7 = 0, cou8 = 0, cou9 = 0;
+	
+	for (int i = 0;i < max - min + 1;i++) {
+		Num[i] = min + i;
+		while (Num[i] > 0) {
+			if (Num[i] % 10 == 0) { cou0++; }
+			if (Num[i] % 10 == 1) { cou1++; }
+			if (Num[i] % 10 == 2) { cou2++; }
+			if (Num[i] % 10 == 3) { cou3++; }
+			if (Num[i] % 10 == 4) { cou4++; }
+			if (Num[i] % 10 == 5) { cou5++; }
+			if (Num[i] % 10 == 6) { cou6++; }
+			if (Num[i] % 10 == 7) { cou7++; }
+			if (Num[i] % 10 == 8) { cou8++; }
+			if (Num[i] % 10 == 9) { cou9++; }
+			Num[i] /= 10;
+		}
+	}
+	cout << cou0 << " " << cou1 << " " << cou2 << " " << cou3 << " " << cou4 << " " << cou5 << " " << cou6 << " " << cou7 << " " << cou8 << " " << cou9;
+	return 0;
+}
