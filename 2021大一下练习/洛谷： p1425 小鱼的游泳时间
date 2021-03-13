@@ -1,0 +1,9 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	int a, b, c, d;
+	cin >> a;cin >> b;cin >> c;cin >> d;
+	cout << (60 - b + d + ( c - a ) * 60) / 60 - 1 << " " << (60 - b + d + ( c - a ) * 60) % 60;
+	return 0;
+}
