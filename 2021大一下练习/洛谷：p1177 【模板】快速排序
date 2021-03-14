@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+int num[1000001];
+void quicksort(int left, int right) {
+	int mid = num[(right + left) / 2];//找到中间数
+	int ll = left;int rr = right;
+	do {
+		while (num[ll] < mid) { ll++; }//找到左边部分开始的大于中间数的那个数
+		while (num[rr] > mid) { rr--; }//找到右边部分开始的小于中间数的那个数
+		if (ll <= rr) {
+			swap(num[ll], num[rr]);//交换左右两边的不符合“左小右大”的数
+			ll++;
+			rr--;//再继续进行查找
+		}
+	} while (ll <= rr);
+	if (left < rr) { quicksort(left, rr); }
+	if (right > ll) { quicksort(ll, right); }
+}
+
+int main() {
+	int k;
+	cin >> k;
+	for (int i = 0;i < k;i++) {
+		cin >> num[i];
+	}
+	quicksort(0, k - 1);
+	for (int i = 0;i < k - 1;i++) {
+		cout << num[i] << " ";
+	}
+	cout << num[k - 1];
+	return 0;
+}
