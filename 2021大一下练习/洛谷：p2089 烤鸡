@@ -82,3 +82,44 @@ int main() {
     }
     return 0;
 }
+
+//递归的方法
+#include<iostream>
+using namespace std;
+int num;
+int cnt = 0;
+int shuchu[10000][10];
+int cunchu[10];
+void peiliao(int sum, int th) {
+	if (th == 10) {//到第十个配料时
+		if (sum == num) {//如果配料总和刚好等于配料总数
+			for (int i = 0;i < 10;i++) {
+				shuchu[cnt][i] = cunchu[i];
+			}
+			cnt++;
+		}
+		
+	}
+	else {
+		for (int i = 1;i <= 3;i++) {
+			cunchu[th] = i;
+			peiliao(sum + i, th + 1);
+		}
+	}
+}
+
+int main() {
+	cin >> num;
+	if (num < 10) { cout << cnt; }
+	else {
+		peiliao(0, 0);//第一个指的是总数，第二个指的是第几个配料
+		cout << cnt << endl;
+		for (int i = 0;i < cnt;i++) {
+			for (int j = 0;j < 10;j++) {
+				cout << shuchu[i][j] << " ";
+			}
+			cout << endl;
+		}
+	}
+	return 0;
+}
