@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+int num[100][100];
+int startnum1 = 1;//指的是横排开始的第一个数
+int startnum2;//指的是斜排开始的第一个数
+int startnum3;//指的是竖排开始的第一个数
+//终止条件是到达k/2
+//对于横排的函数
+int k;
+void heng(int th) {//传入的是第th个横排
+	for (int j = th;j <= k - 1 - 2 * th;j++) {
+		num[th][j] = startnum1 + j - th;
+		//cout << num[th][j] << " ";
+	}
+	startnum2 = num[th][k - 1 - 2 * th] + 1;
+}
+void xie(int th) {//传入的是第th个斜排
+	for (int i = th + 1;i <= k - 1 - 2 * th;i++) {
+		num[i][k - th - 1 - i] = startnum2 + i - th - 1;
+		//cout << num[i][k - th - 1 - i] << " ";
+	}
+	startnum3 = num[k - 1 - 2 * th][th] + 1;
+}
+void shu(int th) {//传入的是第th个竖排
+	for (int i = k - 2 * th - 2;i >= th + 1;i--) {
+		num[i][th] = startnum3 + k - 2 * th - 2 - i;
+		//cout << num[i][th] << " ";
+	}
+	startnum1 = num[th + 1][th] + 1;
+}
+
+
+int main() {
+	cin >> k;
+	for (int i = 0;i < 20;i++) {
+		heng(i);
+		xie(i);
+		shu(i);
+	}
+	
+	for (int i = 0;i < k;i++) {
+		for (int j = 0;j < k - i;j++) {
+			cout << num[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	return 0;
+}
