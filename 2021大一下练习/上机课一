@@ -1,0 +1,22 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+int main() {
+	int k;
+	cin >> k;
+	int num[11];
+	while (k--) {
+		for (int i = 0;i < 10;i++) {
+			cin >> num[i];
+		}
+		reverse(num, num + 10);
+		for (int i = 0;i < 9;i++) {
+			cout << num[i] << " ";
+		}
+		cout << num[9] << endl;
+	}
+	
+	return 0;                                                         
+
+}
