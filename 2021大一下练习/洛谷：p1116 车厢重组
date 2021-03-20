@@ -1,0 +1,29 @@
+//洛谷：p1116 车厢重组
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int cnt = 0;
+int k;
+int num[10001];
+void cmp(int k) {
+	for (int i = 0;i < k;i++) {
+		for (int j = 0;j < k;j++) {
+			if (num[j] > num[j + 1]) {
+				int t = num[j];
+				num[j] = num[j + 1];
+				num[j + 1] = t;
+				cnt++;
+			}
+		}
+	}
+}
+
+int main() {
+	cin >> k;
+	for (int i = 1;i <= k;i++) {
+		cin >> num[i];
+	}
+	cmp(k);
+	cout << cnt;
+	return 0;
+}
