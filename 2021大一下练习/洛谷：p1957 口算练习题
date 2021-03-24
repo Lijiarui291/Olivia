@@ -1,0 +1,82 @@
+#include<iostream>
+#include<stdlib.h>
+#include<string.h>
+#include<stdio.h>
+using namespace std;
+int i = 0;
+char cunchu[1000];
+int num[2];
+void suanfa(int i) {
+	if (cunchu[i] == 97) {
+		cout << num[0] << "+" << num[1] << "=" << num[0] + num[1] << endl;
+		char c[100];
+		char d[100];
+		char e[100];
+		int a = num[0];
+		int b = num[1];
+		int f = num[0] + num[1];
+		itoa(a, c, 10);//把int转成char型 
+		itoa(b, d, 10);
+		itoa(f, e, 10);
+		cout << strlen(c) + strlen(d) + 2 + strlen(e) << endl;
+	}
+	if (cunchu[i] == 98) {
+		cout << num[0] << "-" << num[1] << "=" << num[0] - num[1] << endl;
+		char c[1000];
+		char d[1000];
+		char e[1000];
+		int a = num[0];
+		int b = num[1];
+		int f = num[0] - num[1];
+		itoa(a, c, 10);//把int转成char型 
+		itoa(b, d, 10);
+		itoa(f, e, 10);
+		cout << strlen(c) + strlen(d) + 2 + strlen(e) << endl;
+	}
+	if (cunchu[i] == 99) {
+		cout << num[0] << "*" << num[1] << "=" << num[0] * num[1] << endl;
+		char c[1000];
+		char d[1000];
+		char e[1000];
+		int a = num[0];
+		int b = num[1];
+		int f = num[0] * num[1];
+		itoa(a, c, 10);//把int转成char型 
+		itoa(b, d, 10);
+		itoa(f, e, 10);
+		cout << strlen(c) + strlen(d) + 2 + strlen(e) << endl;
+	}
+}
+
+int main() {
+	int k;
+	cin >> k;
+	while (k--) {
+		char x[1];
+		cin >> x[0];
+		if (x[0] != 97 && x[0] != 98 && x[0] != 99) {
+			cunchu[i] = cunchu[i - 1];
+			cin>>num[0];
+			char numm[100];
+			itoa(num[0],numm,10);
+			int len = strlen(numm);
+			int b;	
+			b=atoi(x);
+			int weizhi = 1;
+			for(int ii=0;ii<len;ii++){
+				weizhi*=10;
+			}
+			num[0]+=b*weizhi;
+			cin>>num[1];
+		}
+		else {
+			cunchu[i] = x[0];
+			for (int j = 0;j < 2;j++) {
+				cin >> num[j];
+			}
+		}
+		suanfa(i);
+		i++;
+	}
+	return 0;
+}
