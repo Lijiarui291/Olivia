@@ -1,0 +1,41 @@
+//第一题：实现类求长方体（正方体）的体积表和面积
+输出示例：
+长宽高分别为：***，***，***
+体积为：***
+表面积为：***
+
+#include<iostream>
+using namespace std;
+
+class Changfang {
+public:
+	void changkuangao(int x, int y, int h) {//输出长宽高
+		chang = x;kuan = y;gao = h;
+		cout << "Length, width and height are：";
+		cout << chang << "," << kuan << "," << gao << endl;
+	}
+	void tiji() {
+		cout << "The volume is：";
+		cout << chang * kuan * gao << endl;
+	}
+	void biaomianji() {
+		cout << "The surface area is：";
+		cout << chang * kuan * 2 + chang * gao * 2 + kuan * gao * 2;
+	}
+private:
+	int chang;//声明Changfang类的属性：长
+	int kuan;//声明Changfang类的属性：宽
+	int gao;//声明Changfang类的属性：高
+};
+
+int main(void) {
+	Changfang c1;
+	cout << "Please enter:" << endl;
+	int x;int y;int z;
+	cin >> x >> y >> z;
+	c1.changkuangao(x, y, z);
+	c1.tiji();
+	c1.biaomianji();
+	return 0;
+
+}
