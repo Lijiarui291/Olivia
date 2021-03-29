@@ -1,0 +1,32 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+struct grades {
+	int yuwen;
+	int shuxue;
+	int yingyu;
+	int sum;
+};
+grades grade[1001];
+int cnt = 0;
+int k;
+
+int main() {
+	cin >> k;
+	int i = 0;
+	while (i <= k - 1) {
+		cin >> grade[i].yuwen;cin >> grade[i].shuxue;cin >> grade[i].yingyu;
+		grade[i].sum = grade[i].yuwen + grade[i].shuxue + grade[i].yingyu;
+		i++;
+	}
+	for (int ii = 0;ii < k - 1;ii++) {
+		for (int jj = ii + 1;jj < k;jj++) {
+			if (abs(grade[ii].yuwen - grade[jj].yuwen) <= 5 && abs(grade[ii].shuxue - grade[jj].shuxue) <= 5 && abs(grade[ii].yingyu - grade[jj].yingyu) <= 5 && abs(grade[ii].sum - grade[jj].sum) <= 10) {
+				cnt++;
+			}
+		}
+	}
+	
+	cout << cnt;
+	return 0;
+}
