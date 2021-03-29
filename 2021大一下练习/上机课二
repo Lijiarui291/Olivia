@@ -39,3 +39,260 @@ int main(void) {
 	return 0;
 
 }
+
+
+//第二题：实现日期类 
+设计一个日期类 Date，类的声明如下：
+class Date{
+public:
+/* 默认构造函数，以fullyear的形式给出年月日，默认值为1990年1月1日，同时设置
+日期分隔符为“-” */
+Date(int year = 1990, int month = 1, int day = 1);
+/* get、set方法 */
+// 设置日期，如果有非法的月或日，将其置为1
+void setDate(int year, int month, int day);
+void setYear(int year);
+int getYear();
+void setMonth(int month);
+int getMonth();
+void setDay(int month);
+int getDay();
+void printFullYear(); // 以YYYY-MM-DD的形式打印，2011-01-08
+void printStandardYear(); // 以YY-MM-DD的形式打印，比如11-01-08
+/* 计算函数 */
+// 计算当前日期与参数日期之间相差几个整年，仅考虑参数日期比当前日期晚的情况
+int fullYearsTo(int year, int month, int day);
+/* 计算当前日期与参数日期之间相差多少天(考虑闰年)，如果参数日期在当前日期之前，返回负数。 */
+int daysTo(int year, int month, int day);
+private:
+int year;
+int month;
+int day;
+char separator; // 日期分隔符
+};
+请实现日期类，使得主函数输出如下：
+void main(){
+Date birthDate(1969, 8, 11);
+birthDate.printFullYear(); // 打印：1969-08-11
+birthDate.printStandardYear(); // 打印：69-08-11
+birthDate.printFullYear(); // 打印：/08/11
+cout << birthDate.fullYearsTo(2010, 4, 15); // 打印：40，满四十岁
+cout << birthDate.daysTo(2010, 4, 15); // 打印14857，活了14857天了
+// 打印-7254，共和国比我早诞生了7254天
+cout << birthDate.daysTo(1949, 10, 1);
+}
+
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+int a;int b;int c;
+int aa;int bb;int cc;int aaa, bbb, ccc;
+int cnt = 0;//记录有多少个闰年；
+int res = 0;//中间要使用的天数记录
+int res1;//记录要减去的天数
+int res2;//记录要加上的天数
+int res3;//记录整年的天数
+int num1[13] = { 31,29,31,30,31,30,31,31,30,31,30,31 };
+int num2[13] = { 31,28,31,30,31,30,31,31,30,31,30,31 };
+int numleapyear(int x, int y) {
+	cnt = 0;
+	int t1 = x, t2 = y;
+	x = min(t1, t2); y = max(t1, t2);
+	for (int i = x;i < y;i++) {
+		if (i % 4 == 0 && i % 100 != 0) {
+			cnt++;
+		}
+		if (i % 400 == 0) {
+			cnt++;
+		}
+	}
+	return cnt;
+}
+int isleap(int i) {//判断该年是不是闰年
+	if (i % 4 == 0 && i % 100 != 0) {
+		return 1;//是闰年
+	}
+	if (i % 400 == 0) {
+		return 1;
+	}
+	else return 0;
+}
+int juli(int years, int months, int days) {
+	res = 0;
+	int panduan = isleap(years);
+	if (months == 1) {
+		res = days;
+	}
+	else {
+		if (panduan) {//如果是闰年
+			for (int i = 0;i < months - 1;i++) {
+				res += num1[i];
+			}
+			res += days;
+		}
+		else {//如果不是闰年
+			for (int i = 0;i < months - 1;i++) {
+				res += num2[i];
+			}
+			res += days;
+		}
+	}
+	return res;
+}
+
+class Date {
+public:
+	/* 默认构造函数，以fullyear的形式给出年月日，默认值为1990年1月1日，同时设置
+	日期分隔符为“-” */
+	Date(int year = 1990, int month = 1, int day = 1);
+	/* get、set方法 */
+	// 设置日期，如果有非法的月或日，将其置为1
+	void setDate(int year, int month, int day);
+	void setYear(int year);
+	int getYear();
+	void setMonth(int month);
+	int getMonth();
+	void setDay(int month);
+	int getDay();
+	void printFullYear(); // 以YYYY-MM-DD的形式打印，2011-01-08
+
+	void printStandardYear(); // 以YY-MM-DD的形式打印，比如11-01-08
+	/* 计算函数 */
+	// 计算当前日期与参数日期之间相差几个整年，仅考虑参数日期比当前日期晚的情况
+	int fullYearsTo(int year, int month, int day);
+	/* 计算当前日期与参数日期之间相差多少天(考虑闰年)，如果参数日期在当前日期之前，返回负数。 */
+	int daysTo(int year, int month, int day);
+private:
+	int year;
+	int month;
+	int day;
+	char separator; // 日期分隔符
+};
+//请实现日期类，使得主函数输出如下：
+
+Date::Date(int y, int m, int d) {
+	setDate(y, m, d);
+}
+void Date::setYear(int y) {
+	year = y;
+}
+void Date::setMonth(int m) {
+	if (m < 1 || m > 12) {
+		month = 1;
+	}
+	else month = m;
+}
+void Date::setDay(int d) {
+	int yy = year;int mm = month;
+	day = d;
+	if (isleap(yy) && d > 29) {day = 1;}
+	if (isleap(yy)==0 && d > 28) {day = 1;}
+	if ((mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12) && (d > 31)) {
+		day = 1;
+	}
+	if ((mm == 4 || mm == 6 || mm == 9 || mm == 11) && (d > 30)) {
+		day = 1;
+	}
+}
+void Date::setDate(int y, int m, int d) {
+	//year = y;month = m;day = d;
+	setYear(y);
+	setMonth(m);
+	setDay(d);
+}
+
+int Date::getYear() {
+	separator = '-';
+	return year;
+}
+int Date::getMonth() {
+	separator = '-';
+	return month;
+}
+int Date::getDay() {
+	separator = '-';
+	return day;
+}
+
+void Date::printFullYear() {
+	int yy = getYear();
+	cout << yy <<separator;
+	int mm = getMonth();
+	if (mm >= 1 && mm <= 9) {
+		cout << "0" << mm << separator;
+	}
+	else { cout << mm << separator; }
+	int dd = getDay();
+	if (dd >= 1 && dd <= 9) {
+		cout << "0" << dd;
+	}
+	else { cout << dd; }
+}
+void Date::printStandardYear() {
+	int yy = getYear();int yyy = yy;int yyyy = yy;
+	yy = (yyy / 10 % 10) * 10 + (yyyy / 1 % 10);
+	if (yy >= 0 && yy <= 9) {
+		cout << "0" << yy << separator;
+	}
+	else { cout << yy << separator; }
+	int mm = getMonth();
+	if (mm >= 1 && mm <= 9) {
+		cout << "0" << mm << separator;
+	}
+	else { cout << mm << separator; }
+	int dd = getDay();
+	if (dd >= 1 && dd <= 9) {
+		cout << "0" << dd;
+	}
+	else { cout << dd; }
+}
+int Date::fullYearsTo(int aa, int bb, int cc) {
+	int xiangcha;
+	if (bb == month && cc >= day) { xiangcha = aa - year;}
+	if (bb < month) { xiangcha = aa - year - 1;}
+	if (bb == month && cc < day) { xiangcha = aa - year - 1;}
+	if (aa == year) { xiangcha = 0;}
+	if (bb > month) { xiangcha = aa - year;}
+	return xiangcha;
+}
+int Date::daysTo(int shuru1, int shuru2, int shuru3) {
+	res3 = 0;
+	//先算参数时间距该年的一月一号的天数（之后减去）
+	//再算当前时间距该年的一月一号的天数（之后加上）
+	//判断这些年一共有多少个闰年（设计函数实现）
+	if ((shuru1 > a) || ((shuru1 == a) && (shuru2 > b))|| ((shuru1 == a) && (shuru2 == b) && (shuru3 > c))) {
+		int numleap = numleapyear(a, shuru1);
+		res3 = (shuru1 - a - numleap) * 365 + numleap * 366 + juli(shuru1, shuru2, shuru3) - juli(a, b, c);
+		return res3;
+	}
+	else {
+		int numleap = numleapyear(a, shuru1);
+		res3 = (a - shuru1 - numleap) * 365 + numleap * 366 - juli(shuru1, shuru2, shuru3) + juli(a, b, c);
+		res3 = 0 - res3;
+		return res3;
+	}
+}
+
+
+int main(void) {
+	cout << "Please enter your birthdate:";
+	cin >> a;cin >> b;cin >> c;
+	Date birthDate(a, b, c);
+	//Date birthDate(1969, 8, 11);
+	birthDate.printFullYear(); // 打印：1969-08-11
+	cout << endl;
+	birthDate.printStandardYear(); // 打印：69-08-11
+	cout << endl;
+	cout << "Please enter current year, month and day:";
+	cin >> aa;cin >> bb;cin >> cc;
+	cout << birthDate.fullYearsTo(aa, bb, cc);
+	//cout << birthDate.fullYearsTo(2010, 4, 15); // 打印：40，满四十岁
+	cout << endl;
+	cout << birthDate.daysTo(aa, bb, cc); // 打印14857，活了14857天了
+	cout << endl;
+	// 打印-7254，共和国比我早诞生了7254天
+	cout << "Please enter certain year, month and day:";
+	cin >> aaa >> bbb >> ccc;
+	cout << birthDate.daysTo(aaa, bbb, ccc);
+}
