@@ -22,7 +22,7 @@ void random(string a[53], int n)
 }
 //对扑克牌的说明：
 string RANKS[14] = { "A","2","3","4","5","6","7","8","9","10","J","Q","K" };
-string SUITS[4] = { "flo","hrt","blk","sqr" };
+string SUITS[4] = { "spd","hrt","dia","clb" };//其中Sp(a)d(e)黑桃,h(ea)rt红心,dia(mond)红砧,cl(u)b黑梅 
 const int COLOR = 4;
 const int NUM = 13;
 class suits {
@@ -43,14 +43,14 @@ void suits::zuhe(string front) {
 }
 
 int main() {
-	suits flo;
-	flo.zuhe("flo");
+	suits spd;
+	spd.zuhe("spd");
 	suits hrt;
 	hrt.zuhe("hrt");
-	suits blk;
-	blk.zuhe("blk");
-	suits sqr;
-	sqr.zuhe("sqr");
+	suits dia;
+	dia.zuhe("dia");
+	suits clb;
+	clb.zuhe("clb");
 	for (int i = 0;i < 52;i++) {
 		cout << card[i] << " ";
 		if(i == 12 || i == 25 || i == 38){cout << endl;}
