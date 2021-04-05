@@ -1,0 +1,56 @@
+1.定义图书类：b表示借走，r表示归还，s指显示图书情况，e表示结束
+#include<iostream>
+#include<string.h>
+using namespace std;
+char BookName[10] = { "C""+""+""P""R""I""M""E""R" };
+char Author[9] = { "L""I""J""I""A""R""U""I" };
+char u;
+class Book {
+public:
+	int price;//数据成员：价格
+	int number;//数据成员：存书数量
+	void display();
+	void borrow(int num);
+	void restore(int numm);
+	Book(char a[], char b[], int xx, int yy);
+private:
+	char bookname[10];//数据成员：书名
+	char author[9];//数据成员：作者
+};
+Book::Book(char a[], char b[], int Price, int Number) {
+	int LenOfA = strlen(a);int LenOfB = strlen(b);
+	for (int i = 0;i < LenOfA;i++) {
+		bookname[i] = a[i];
+	}
+	for (int i = 0;i < LenOfB;i++) {
+		author[i] = b[i];
+	}
+	number = Number;
+	price = Price;
+}
+void Book::display() {
+	cout << bookname << " " << author << " " << price << " " << number;
+	cout << endl;
+}
+void Book::borrow(int num) {
+	number = num - 1;
+	cout << number;
+	cout << endl;
+}
+void Book::restore(int numm) {
+	number = numm + 1;
+	cout << number;
+	cout << endl;
+}
+
+int main() {
+	Book u(BookName, Author, 52, 100);
+	char x;
+	while (1) {
+		x = getchar();
+		if (x == 'e') { return 0; }
+		if (x == 'b') { u.borrow(u.number); }
+		if (x == 'r') { u.restore(u.number); }
+		if (x == 's') { u.display(); }
+	}	
+}
