@@ -54,3 +54,66 @@ int main() {
 		if (x == 's') { u.display(); }
 	}	
 }
+
+2. 有4个学生组队参加某比赛，每个学生信息包含学号，姓名，个人成绩，4个学生有一共同团队成绩。
+①请写一学生类完成其定义实现，学号唯一（6位）；
+②编写主程序模拟生成4个学生给其赋值、完成相关信息的输出，按个人成绩排序从高到低输出每个学生的所有信息，成绩相同则按学号大小。
+#include<iostream>
+#include<string.h>
+#include<algorithm>
+using namespace std;
+string a1, b1, a2, b2, a3, b3, a4, b4;
+int c1, d1, c2, d2, c3, d3, c4, d4;
+int temppersongrade, tempteamgrade;
+class Stu {
+public:
+	string name;//姓名
+	int persongrade;//个人成绩
+	int teamgrade;//团队成绩
+	string stunum;//唯一学号
+	void stu(string a, string b, int c, int d);
+};
+Stu all;
+void Stu::stu(string a, string b, int c, int d) {
+	name = a;
+	stunum = b;
+	persongrade = c;teamgrade = d;
+}
+
+
+int main() {
+	cout << "Please enter the name,the ID,the personal grade of person 1,and the team grade:";
+	cin >> a1;cin >> b1;cin >> c1;cin >> d1;
+	Stu p[4];Stu all;
+	p[0].stu(a1, b1, c1, d1);
+	cout << "Please enter the name,the ID,the personal grade of person 2,and the team grade:";
+	cin >> a2;cin >> b2;cin >> c2;cin >> d2;
+	p[1].stu(a2, b2, c2, d2);
+	cout << "Please enter the name,the ID,the personal grade of person 3,and the team grade:";
+	cin >> a3;cin >> b3;cin >> c3;cin >> d3;
+	p[2].stu(a3, b3, c3, d3);
+	cout << "Please enter the name,the ID,the personal grade of person 4,and the team grade:";
+	cin >> a4;cin >> b4;cin >> c4;cin >> d4;
+	p[3].stu(a4, b4, c4, d4);
+	int i, j;
+	for (i = 0;i < 4;i++)
+	{
+		for (j = 0;j < 4 - i - 1;j++)//此处很重要
+		{
+			if (p[j].persongrade < p[j + 1].persongrade)//根据单一数据项，对整个结构体进行排序
+			{
+				all = p[j + 1];//结构体允许整体赋值
+				p[j + 1] = p[j];
+				p[j] = all;
+			}
+		}
+	}
+
+
+
+	for (int i = 0;i < 4;i++) {
+		cout << p[i].name << " " << p[i].stunum << " " << p[i].persongrade << " " << p[i].teamgrade;
+		cout << endl;
+	}
+	return 0;
+}
