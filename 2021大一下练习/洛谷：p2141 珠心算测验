@@ -1,0 +1,29 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int num[101];
+int repeat[101];
+int cnt = 0;
+int main() {
+	int k;
+	cin >> k;
+	for (int i = 0;i < k;i++) {
+		cin >> num[i];
+	}
+	sort(num, num + k);
+	
+	for (int i = 0;i < k - 2;i++) {
+		for (int j = i + 1;j < k - 1;j++) {
+			for (int m = i + 2;m < k;m++) {
+				if (num[i] + num[j] == num[m] && repeat[m] == 0) {
+					cnt++;
+					repeat[m] = 1;//精妙的一步：标记去重
+					//cout << cnt << ":" << num[i] << "+" << num[j] << " " << "=" << num[m] << " ("<< num[i] + num[j] << endl;
+				}
+			}
+		}
+	}
+	cout << cnt;
+	
+	return 0;
+}
