@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+class Car {
+public:
+	Car(int x, int y);
+	void Print();
+private:
+	int Bigcar;
+	int Smallcar;
+};
+Car::Car(int x, int y) {
+	Bigcar = x;
+	Smallcar = y;
+}
+void Car::Print() {
+	cout << Bigcar * 10 + Smallcar * 5 << endl;
+}
+int main() {
+	cout << "Please enter the number of big car and small car:";
+	int x;int y;
+	cin >> x;cin >> y;
+	Car A(x, y);
+	A.Print();
+	return 0;
+}
