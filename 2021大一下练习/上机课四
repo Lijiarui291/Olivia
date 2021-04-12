@@ -51,4 +51,89 @@ int main() {
 	v.change();
 	v.show();
 	return 0;
-} 
+}
+
+
+2.试定义 RECT 类（长方形）及其派生类 CUB（长方体），具体要求如下：
+（1）类 RECT 的成员如下：
+（a）保护数据成员 double x,y; 分别表示长方形的长和宽。
+（b）公有成员函数 RECT（double x1,double y1）；构造函数，分别用 x1、y1 初始化 x 和 y。
+virtual double area( ); 虚函数，计算长方形的面积，计算公式：面积=长×宽。
+double peri( ); 计算长方形的周长。计算公式：周长=2×长+2×宽。
+virtual int isSquare( ); 虚函数，判断是否为正方形，如是，返回 1；否则返回 0。
+（2） 类 CUB 为类 RECT 的公有派生类，其成员如下：
+（a） 私有数据成员 double height; 表示长方体的高度。
+（b） 公有成员函数 CUB( ); 构造函数，用 h、x、y 分别初始化 height 及其基类成员 x 和 y。
+double volume( ); 计算长方体的体积。计算公式：体积=底面积×高，其中底面积通过调用基类成 员函数 area( )计算。
+double area(); 计算长方体的表面积。计算公式：表面积=2×底面积+底面周长×高度。底面积和底 面周长分别调用基类成员函数 area()和 peri()计算。
+int isSquare();判断是否为正方体，如是，返回 1，否则返回 0。在判断过程中，首先调用基类的成员函数 isSquare()判断底面是否为正方形。
+（3）在主函数中，创建一个 CUB 对象 cu 和一个 RECT 指针*re，并使 re 指向 cu。通过 cu 调用 volume()， 计算并输出长方体的体积；通过 re 调用 area()和 isSquare()，计算并输出长方体的表面积，并判断是否为正方体。
+#include<iostream>
+using namespace std;
+class RECT {
+public:
+	RECT(double x1, double y1);//构造函数，分别用x1,y1初始化x,y
+	virtual double area() {//虚函数，计算长方形的面积，计算公式：面积=长*宽
+		return x * y;
+	}
+	double peri();//计算长方形的周长，计算公式：周长=2*(长+宽）
+	virtual int isSquare() {//虚函数，判断是否是正方形，如是返回1，如否返回0
+		if (x == y) { return 1; }
+		else return 0;
+	}
+protected:
+	double x, y;//分别表示长方形的长和宽
+};
+class CUB :public RECT {
+public:
+	CUB(double x, double y, int h) :RECT(x, y) {//构造函数，分别用h,x,y初始化height和基类成员x,y
+		height = h;
+	}
+	double volume() {//计算长方体的体积，体积：底面积*高，其中底面积调用基类函数area()
+		double a = RECT::area() * height;
+		cout << a << endl;
+		return 1;
+	}
+	double area() {/*计算长方体的表面积，表面积：2*底面积+底面周长*高度，其中底面积调用基类函数area(),
+	底面周长调用peri()*/
+		double b = 2 * RECT::area() + RECT::peri() * height;
+		cout << b << endl;
+		return 1;
+	}
+	int isSquare() {//判断是否正方体，如是返回1，如否返回0，先调用基类函数isSquare()判断底面是否是正方形
+		if (RECT::isSquare()) {
+			if (height == x && height == y) { cout << "1"; }
+			else cout << "0";
+			cout << endl;
+		}
+		else {
+			cout << "0";
+			cout << endl;
+		}
+		return 1;
+	}
+private:
+	double height;//长方体的高
+};
+RECT::RECT(double x1, double y1) {
+	x = x1;y = y1;
+}
+double RECT::peri() {
+	return 2 * (x + y);
+}
+
+int main() {
+	cout << "Please enter the length,the width and the height of the rectangle:";
+	int x1;int y2;int h;
+	cin >> x1;cin >> y2;cin >> h;
+	CUB cu(x1, y2, h);
+	RECT* re = &cu;
+	cout << "The area of the rectangle is:";
+	re->area();//输出表面积
+	cout << "The volume of the rectangle is:";
+	cu.volume();//输出长方体的体积
+	cout << "The rectangle is square or not:";
+	cu.isSquare();//判断是否为正方体
+	return 0;
+
+}
