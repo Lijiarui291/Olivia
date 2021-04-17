@@ -124,3 +124,83 @@ int main() {
 	OneTeacher.PrintTeach();cout << endl;
 	return 0;
 }
+
+2.虚基类练习：长期的物种进化使两栖动物既能活跃在陆地上，又能游动于水中。利用虚基类建立一个类的多重继承，
+包括动物(animal，属性有体长，体重和性别)，陆生动物(ter_animal，属性增加了奔跑速度)，水生动物(aqu_animal，属性增加了游泳速度)和两栖动物(amp_animal)。其中两栖动物保留了陆生动物和水生动物的属性
+
+#include<iostream>
+using namespace std;
+//利用虚基类建立一个类的多重继承，包括动物(animal，属性有体长，体重和性别),水生动物，陆生动物(继承自animal)
+//其中两栖动物保留了陆生动物和水生动物的属性
+class animal {
+public:
+	int height;//体长
+	int weight;//体重
+	char gender;//性别
+	animal(int Height = 50, int Weight = 20, char Gender = 'm');
+	void setAnimal(int Height, int Weight, char Gender);
+	virtual void print();
+};
+animal::animal(int Height, int Weight, char Gender) {
+	height = Height;weight = Weight;gender = Gender;
+}
+void animal::setAnimal(int Height, int Weight, char Gender) {
+	height = Height;weight = Weight;gender = Gender;
+}
+void animal::print() {
+	cout << "height:" << height << endl;cout << "weight:" << weight << endl;
+	cout << "sex:" << gender << endl;
+}
+class aqu_animal :virtual public animal {//水生动物(aqu_animal，属性增加了游泳速度)
+public:
+	aqu_animal(int Height = 50, int Weight = 20, char Gender = 'm', int Swimming_speed = 100) :animal(Height, Weight, Gender) {
+		swimming_speed = Swimming_speed;
+	}
+	int Swimming_speed() {
+		return swimming_speed;
+	}
+	void setS_S(int s_s) {
+		swimming_speed = s_s;
+	}
+private:
+	int swimming_speed;
+};
+
+class ter_animal :virtual public animal {//陆生动物(ter_animal，属性增加了奔跑速度)
+public:
+	int Running_speed() {
+		return running_speed;
+	}
+	void setR_S(int r_s) {
+		running_speed = r_s;
+	}
+private:
+	int running_speed;
+};
+class amp_animal :virtual public aqu_animal, virtual public ter_animal {
+public:
+	amp_animal(int Height = 50, int Weight = 20, char Gender = 'm', int Swimming_speed = 100, int Running_speed = 120) :aqu_animal(Height, Weight, Gender, Swimming_speed) {
+		setR_S(Running_speed);
+	}
+	virtual void Print() {
+		aqu_animal::print();
+		cout << "swimming_speed:" << Swimming_speed();
+		cout << endl;
+		cout << "running_speed:" << Running_speed();
+		cout << endl;
+	}
+};
+
+int main() {
+	amp_animal a(50, 20, 'm', 100, 120);
+	//输入:两栖动物的体长，体重，性别，游泳速度，奔跑速度
+	int Height, Weight, Swimming_speed, Running_speed;
+	char Gender;
+	cin >> Height;cin >> Weight;cin >> Gender;cin >> Swimming_speed;cin >> Running_speed;
+	amp_animal b(Height, Weight, Gender, Swimming_speed, Running_speed);
+	b.setAnimal(Height, Weight, Gender);
+	a.Print();
+	cout << endl;
+	b.Print();
+	return 0;
+}
