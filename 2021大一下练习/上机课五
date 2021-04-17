@@ -1,0 +1,126 @@
+1.定义一个人员类Person，数据成员包括编号、姓名、性别、家庭住址、联系电话。性别用char型实现，’f’表示女性，’m’表示男性，其它用string类型。成员函数包括：(1)设置编号;(2)设置姓名;(3)设置性别；(4)设置家庭住址；(5)设置联系电话；(6)构造函数；(7)输出一个人员的全部描述信息。
+定义一个描述学生的类Student，为Person类公有派生而来。新增的数据成员包括数学、物理、英语、程序设计四门课成绩，各门课成绩为整型。注意继承来的编号成员在此处的意义是学号。新增的成员函数包括：(1)设置数学、物理、外语、程序设计四门课成绩，函数原型为void setScore(char tag, int score);当tag的值分别为’m’、’p’、’e’和’c’时，分别设置数学、物理、英语、程序设计四门课成绩。(2)构造函数；(3)输出一个学生的全部信息，注意在此函数中调用基类中输出人员的全部描述信息的函数。
+定义一个描述教师的类Teacher，为Person类公有派生而来。新增的数据成员包括：职称、工资（职称为string类型，工资为double型），注意继承来的编号在此处的意义为工号。新增的成员函数包括：(1)设置职称；(2)设置工资；(3)构造函数；(4)输出一个教师的全部描述信息，注意在此函数中调用基类中输出人员的全部描述信息的函数。
+主函数中：(1)定义一个Person类对象，数据成员值由键盘输入，输出对象的全部描述信息；然后修改Person类对象的联系电话，值由键盘输入；输出设置后的全部描述信息。
+(2)定义一个Student类对象，数据成员值由键盘输入，输出对象的全部描述信息；然后修改Student类对象的相应课程成绩，课程标识和成绩由键盘输入；输出设置后的全部描述信息。
+(3)定义一个Teacher类对象，数据成员值由键盘输入，输出对象的全部描述信息；然后修改Teacher类对象的工资，工资值由键盘输入；输出设置后的全部描述信息。
+
+#include<iostream>
+using namespace std;
+class Person {//基类：Person类
+public:
+	string ID;//编号
+	string name;//姓名
+	char gender;//性别:’f’表示女性，’m’表示男性
+	string address;//家庭住址
+	string phoneNum;//联系电话
+	//成员函数包括：
+	void setID(string id);//(1)设置编号
+	void setName(string Name);//(2)设置姓名
+	void setGender(char Gender);//(3)设置性别
+	void setAddress(string Address);//(4)设置家庭住址
+	void setPhoneNum(string PhoneNum);//(5)设置联系电话
+	Person(string ID, string name, char gender, string address, string phoneNum);//(6)构造函数
+	virtual void print();//(7)输出一个人员的全部描述信息
+};
+Person::Person(string id, string Name, char Gender, string Address, string PhoneNum) {
+	ID = id;name = Name;gender = Gender;address = Address;phoneNum = PhoneNum;
+}
+void Person::setID(string id) { ID = id; }
+void Person::setName(string Name) { name = Name; }
+void Person::setGender(char Gender) { gender = Gender; }
+void Person::setAddress(string Address) { address = Address; }
+void Person::setPhoneNum(string PhoneNum) { phoneNum = PhoneNum; }
+void Person::print() {
+	cout << "编    号：" << ID << endl;cout << "姓    名：" << name << endl;
+	cout << "性    别：" << gender << endl;cout << "家庭住址：" << address << endl;
+	cout << "联系电话：" << phoneNum << endl;
+}
+//定义一个描述学生的类Student，为Person类公有派生而来
+class Student :virtual public Person {
+public:
+	//新增数据成员：
+	int gradeMath;//数学成绩
+	int gradePhysics;//物理成绩
+	int gradeEnglish;//外语成绩
+	int gradePro;//程序设计成绩
+	//注意继承来的编号成员在此处的意义是学号
+//新增的成员函数包括：
+	void setScore(char tag, int score);//(1)设置数学、物理、外语、程序设计四门课成绩
+	//当tag的值分别为’m’、’p’、’e’和’c’时，分别设置数学、物理、英语、程序设计四门课成绩
+	Student(string id, string Name, char Gender, string Address, string PhoneNum, int math, int phy, int eng, int pro);//(2)构造函数；
+	virtual void PrintStu() {//(3)输出一个学生的全部信息，注意在此函数中调用基类中输出人员的全部描述信息的函数
+		Person::print();
+		cout << "数    学：" << gradeMath << endl;cout << "物    理：" << gradePhysics << endl;
+		cout << "英    语：" << gradeEnglish << endl;cout << "程序设计：" << gradePro << endl;
+	}
+};
+Student::Student(string id, string Name, char Gender, string Address, string PhoneNum, int math, int phy, int eng, int pro) :Person(id, Name, Gender, Address, PhoneNum) {
+	gradeMath = math;
+	gradePhysics = phy;
+	gradeEnglish = eng;
+	gradePro = pro;
+}
+void Student::setScore(char tag, int score) {
+	if (tag == 'm') { gradeMath = score; } if (tag == 'p') { gradePhysics = score; }
+	if (tag == 'e') { gradeEnglish = score; } if (tag == 'c') { gradePro = score; }
+}
+//定义一个描述教师的类Teacher，为Person类公有派生而来
+//新增的成员函数包括：
+class Teacher :virtual public Person {
+public:
+	//新增数据成员：
+	string rank;//职称
+	double salary;//工资
+	//注意继承来的编号在此处的意义为工号
+//新增的成员函数包括：
+	void setRank(string Rank) {//(1)设置职称
+		rank = Rank;
+	}
+	void setSalary(double Salary) {//(2)设置工资
+		salary = Salary;
+	}
+	Teacher(string workid, string Name, char Gender, string Address, string PhoneNum, string Rank, double Salary) :Person(workid, Name, Gender, Address, PhoneNum) {//(3)构造函数；
+		rank = Rank;salary = Salary;
+	}
+	virtual void PrintTeach() {//(4)输出一个教师的全部描述信息，注意在此函数中调用基类中输出人员的全部描述信息的函数
+		Person::print();
+		cout << "职    称：" << rank << endl;cout << "工    资：" << salary << endl;
+	}
+};
+int main() {
+	//(1)定义一个Person类对象，数据成员值由键盘输入，输出对象的全部描述信息；
+	//然后修改Person类对象的联系电话，值由键盘输入；输出设置后的全部描述信息
+	string id; string Name; char Gender; string Address; string PhoneNum;
+	cin >> id;cin >> Name;cin >> Gender;cin >> Address;cin >> PhoneNum;
+	Person somebody(id, Name, Gender, Address, PhoneNum);
+	Person Somebody = somebody;
+	string PhoneNumAfter;
+	cin >> PhoneNumAfter;
+	Somebody.setPhoneNum(PhoneNumAfter);
+	string stuid; string StuName; char StuGender; string StuAddress; string StuPhoneNum;
+	int math;int phy;int eng;int pro;
+	cin >> stuid; cin >> StuName; cin >> StuGender; cin >> StuAddress; cin >> StuPhoneNum;
+	cin >> math;cin >> phy;cin >> eng;cin >> pro;
+	Student oneStudent(stuid, StuName, StuGender, StuAddress, StuPhoneNum, math, phy, eng, pro);
+	Student OneStudent = oneStudent;
+	char tag;int score;
+	cin >> tag;cin >> score;
+	OneStudent.setScore(tag, score);
+	string workid; string WorkName; char WorkGender; string WorkAddress; string WorkPhoneNum;
+	string Rank;double Salary;
+	cin >> workid; cin >> WorkName; cin >> WorkGender; cin >> WorkAddress; cin >> WorkPhoneNum;
+	cin >> Rank;cin >> Salary;
+	Teacher oneTeacher(workid, WorkName, WorkGender, WorkAddress, WorkPhoneNum, Rank, Salary);
+	Teacher OneTeacher = oneTeacher;
+	double SAlary;
+	cin >> SAlary;
+	OneTeacher.setSalary(SAlary);
+	somebody.print();cout << endl;
+	Somebody.print();cout << endl;
+	oneStudent.PrintStu();cout << endl;
+	OneStudent.PrintStu();cout << endl;
+	oneTeacher.PrintTeach();cout << endl;
+	OneTeacher.PrintTeach();cout << endl;
+	return 0;
+}
