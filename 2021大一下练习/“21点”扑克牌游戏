@@ -1,0 +1,201 @@
+/*扑克牌的说明：
+string[] RANKS = {"A", "2", "3", "4", "5", "6", "7","8", "9", "10", "J", "Q", "K"};
+string[] SUITS = {"c", "d", "h", "s"};
+*/
+#include <iostream>
+#include <string>
+#include <ctime>
+#include <cstdlib>
+#include <vector>
+using namespace std;
+
+const int COLOR = 4;
+const int NUM = 13;
+string RANKS[] = { "A", "2", "3", "4", "5", "6", "7","8", "9", "10", "J", "Q", "K" };
+string SUITS[] = { "c", "d", "h", "s" };
+
+class Card {
+public:
+	string rank;
+	string suit;
+	bool bFaceUp;
+	Card() {
+		bFaceUp = true;
+	}
+	Card(string strrank, string strsuit, bool FaceUp) {
+		rank = strrank;
+		suit = strsuit;
+		bFaceUp = FaceUp;
+	}
+	void Print() {
+		//cout<<"Suit="<<suit<<";Rank="<<rank<<"  ";
+		if (bFaceUp)
+			cout << rank << suit << endl;
+		else
+			cout << "**" << endl;
+	}
+};
+class Hand {
+public:
+	vector<Card> cards;
+	Hand() {}
+	void Clear() {
+		if (!cards.empty())
+			cards.clear();
+	}
+	void Show() {
+		/*
+		for(int i=0;i<COLOR*NUM;i++){
+				if (i%NUM==0)
+					cout<<endl;
+				cards[i].Print();
+		}
+		*/
+		for (int i = 0;i < cards.size();i++)
+			cards.at(i).Print();
+	}
+	int Value() {
+
+		//A可以作为11，也可作为1点，当它与<10点的牌配对时，=11点，否则，=1点
+		int iRet = 0;//分数累加器； 
+		string str = "";
+		int iCountA = 0;//‘A’累加器； 
+		for (int i = 0;i < cards.size();i++) {
+			if (cards.at(i).rank != "A" && cards.at(i).rank != "J" && cards.at(i).rank != "Q" && cards.at(i).rank != "K")
+				iRet += stoi(cards.at(i).rank);//stoi函数为<string>中string转换为int; 
+			else if (cards.at(i).rank == "J" || cards.at(i).rank == "Q" || cards.at(i).rank == "K")
+				iRet += 10;
+			else {
+
+				iRet += 11;
+				iCountA++;
+			}
+		}
+		//查看A，必要时将A当成1点；
+		while (iRet > 21) {
+			if (iCountA > 0) {
+				iRet -= 10;
+				iCountA--;
+			}
+			if (iCountA == 0)
+				break;
+		}
+
+		return iRet;
+	}
+
+};
+class Deck :public Hand {
+private:
+	Card tempcards[NUM * COLOR];
+public:
+
+	//vector<Card> cards;
+	Deck() {
+		int k = 0;
+		for (int i = 0;i < COLOR;i++) {
+			for (int j = 0;j < NUM;j++) {
+				tempcards[k].rank = RANKS[j];
+				tempcards[k].suit = SUITS[i];
+				k++;
+
+
+			}
+		}
+
+	}
+	void Shuffle() {
+		//随机产生一个0~51的数，以它为下标与cards[i]交换，i从0循环到51；
+		srand((int)time(0));
+		int j = 0;
+		//swap
+		for (int i = 0;i < COLOR * NUM;i++) {
+			j = rand() % (COLOR * NUM);
+			Card temp(tempcards[i]);
+			//cout<<"temp：";
+			//temp.Print();
+			//cout<<"card[j]:";
+			//cards[j].Print();
+			tempcards[i] = tempcards[j];
+			tempcards[j] = temp;
+			//cout<<"-----------"<<endl;
+		}
+		for (int k = 0;k < NUM * COLOR;k++) {
+			cards.push_back(tempcards[k]);
+		}
+
+	}
+	void Give(Hand& hand) {//将数组中下标为0的扑克牌给hand; 
+		if (!cards.empty()) {
+			Card FirstCard = cards.at(0);
+			hand.cards.push_back(FirstCard);
+			cards.erase(cards.begin());
+		}
+	}
+
+};
+int main() {
+	Deck deck;
+	deck.Shuffle();
+	//deck.Show();
+	Hand me;
+	Hand others;
+	//cout<<"----------"<<endl;
+	deck.Give(me);
+	deck.Give(me);
+	int pointMe = me.Value();
+	me.Show();cout << endl;
+	cout << pointMe << endl;
+	cout << "----------" << endl;
+	deck.Give(others);
+	//others.Show();
+	deck.Give(others);
+	int pointOthers = others.Value();
+	others.Show();cout << endl;
+	cout << pointOthers << endl;
+	cout << "----------" << endl;
+	while (1) {
+		char y = getchar();
+		if (y == 49) {
+			deck.Give(me);
+			me.Show();
+			int coutMe = me.Value();
+			cout << "coutMe:" << coutMe << endl;
+		}
+		if (y == 48) { cout << me.Value() << endl;break; }
+	}
+	cout << "----------" << endl;
+	int PointOthers = pointOthers;
+	while (1) {
+		if (PointOthers > 17) {
+			char x = getchar();
+			if (x == 49) {
+				deck.Give(others);
+				others.Show();
+				PointOthers = others.Value();
+				cout << endl;
+				cout << PointOthers << endl;
+			}
+			if (x == 48) { cout << others.Value() << endl;break; }
+		}
+		else {
+			while (PointOthers <= 17) {
+				deck.Give(others);
+				PointOthers = others.Value();
+			}
+		}
+	}
+	cout << "+++++++++++++" << endl;
+
+	//cout << me.Value() << " " << others.Value();
+	if (me.Value() > 21 && others.Value() > 21) { cout << "Same"; }
+	if (me.Value() > 21 && others.Value() <= 21) { cout << "You fail"; }
+	if (others.Value() > 21 && me.Value() <= 21) { cout << "You win"; }
+	if (me.Value() == others.Value()) { cout << "Same"; }
+	//deck.Show();
+	//cout<<"---------"<<endl;
+	//cout<<"me:"<<endl;
+	//me.Show();
+
+	//cout<<point<<endl;
+}
