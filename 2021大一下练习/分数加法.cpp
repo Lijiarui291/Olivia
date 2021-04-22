@@ -1,9 +1,9 @@
 #include<iostream>
 using namespace std;
 
-int gcd(int x, int y) {//最大公约数
+int gcd(int x, int y) {//鏈�澶у叕绾︽暟
 	int Min = min(x, y);
-	int GCD;//指最大公约数
+	int GCD;//鎸囨渶澶у叕绾︽暟
 	if (y % Min == 0 && x % Min == 0) {
 		GCD = Min;
 		return GCD;
@@ -26,8 +26,8 @@ int main() {
 	int a, b, c, d;
 	char e, f;
 	cin >> a;cin >> e;cin >> b;cin >> c;cin >> f;cin >> d;
-	int aa = b * d;//初始分母
-	int bb = a * d + c * b;//初始分子
+	int aa = b * d;//鍒濆鍒嗘瘝
+	int bb = a * d + c * b;//鍒濆鍒嗗瓙
 	int x = gcd(aa, bb);
 	if (x == 1) { cout << bb << '/' << aa; }
 	else { cout << bb / x << '/' << aa / x; }
