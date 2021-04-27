@@ -2,13 +2,13 @@
 using namespace std;
 class Account {
 public:
-	int id;//¿¨ºÅ
-	string name;//ĞÕÃû
-	float balance = 100;//Óà¶î£»
-	void deposit(float amount);//´æÇ®£»
-	bool withdraw(float amount);//È¡Ç®£»
-	float getbalance();//ÏÔÊ¾ÊôĞÔµÄÖµ£»
-	void show();//ÏÔÊ¾º¯Êı
+	int id;//å¡å·
+	string name;//å§“å
+	float balance = 100;//ä½™é¢ï¼›
+	void deposit(float amount);//å­˜é’±ï¼›
+	bool withdraw(float amount);//å–é’±ï¼›
+	float getbalance();//æ˜¾ç¤ºå±æ€§çš„å€¼ï¼›
+	void show();//æ˜¾ç¤ºå‡½æ•°
 	Account(int x);
 	Account();
 };
@@ -54,9 +54,9 @@ float Account::getbalance() {
 	cout << "The balance is ";
 	return balance;
 }
-//´´½¨Ò»¸öÓĞ5¸öÕË»§µÄÊı×é£¬ÆäidÎª101~105£¬²¢³õÊ¼»¯Óà¶îÎª100Ôª¡£ÏµÍ³ÌáÊ¾ÓÃ»§ÊäÈëÒ»¸öid
-//Èç¹ûÊäÈëµÄid²»ÕıÈ·£¬¾ÍÒªÇóÓÃ»§ÊäÈëÒ»¸öÕıÈ·µÄid¡£
-//Ò»µ©½ÓÊÜÒ»¸öid£¬ÔòÏÔÊ¾ÏÂÃæµÄÖ÷²Ëµ¥¡£
+//åˆ›å»ºä¸€ä¸ªæœ‰5ä¸ªè´¦æˆ·çš„æ•°ç»„ï¼Œå…¶idä¸º101~105ï¼Œå¹¶åˆå§‹åŒ–ä½™é¢ä¸º100å…ƒã€‚ç³»ç»Ÿæç¤ºç”¨æˆ·è¾“å…¥ä¸€ä¸ªid
+//å¦‚æœè¾“å…¥çš„idä¸æ­£ç¡®ï¼Œå°±è¦æ±‚ç”¨æˆ·è¾“å…¥ä¸€ä¸ªæ­£ç¡®çš„idã€‚
+//ä¸€æ—¦æ¥å—ä¸€ä¸ªidï¼Œåˆ™æ˜¾ç¤ºä¸‹é¢çš„ä¸»èœå•ã€‚
 /*Enter an id : 101
 Main menu
 1 : check balance
