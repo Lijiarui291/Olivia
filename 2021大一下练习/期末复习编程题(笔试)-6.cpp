@@ -24,3 +24,33 @@ int main() {
 	cout << b.GetPerimeter() << endl;
 	return 0;
 }
+
+2、
+#include<iostream>
+using namespace std;
+
+class Vector2d {
+private:
+	double x;
+	double y;
+public:
+	Vector2d(double xx, double yy) { x = xx;y = yy; }
+	void Show() {
+		cout << "x = " << x << endl;
+		cout << "y = " << y << endl;
+	}
+	void operator+(const Vector2d& obj) {
+		x = x + obj.x;
+		y = y + obj.y;
+	}
+};
+
+int main() {
+	Vector2d a(3, 4);
+	Vector2d b(5, 6);
+	a.Show();
+	b.Show();
+	a + b;
+	a.Show();
+	return 0;
+}
