@@ -25,7 +25,7 @@ int main() {
 	return 0;
 }
 
-2、
+2、(1)
 #include<iostream>
 using namespace std;
 
@@ -52,5 +52,34 @@ int main() {
 	b.Show();
 	a + b;
 	a.Show();
+	return 0;
+}
+2、(2)
+#include<iostream>
+using namespace std;
+
+class Vector2d {
+private:
+	double x;
+	double y;
+public:
+	Vector2d(double xx, double yy) { x = xx;y = yy; }
+	void Show() {
+		cout << "x = " << x << endl;
+		cout << "y = " << y << endl;
+	}
+	Vector2d operator+(const Vector2d& obj) {
+		return Vector2d(x + obj.x, y + obj.y);
+	}
+};
+
+int main() {
+	Vector2d a(3, 4);
+	Vector2d b(5, 6);
+	Vector2d c(0, 0);
+	a.Show();
+	b.Show();
+	c = a + b;
+	c.Show();
 	return 0;
 }
