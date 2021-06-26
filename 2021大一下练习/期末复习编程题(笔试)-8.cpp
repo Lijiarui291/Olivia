@@ -21,3 +21,45 @@ int main() {
 	cout << Sum(b, 4) << endl;
 	return 0;
 }
+
+2、
+#include<iostream>
+using namespace std;
+
+class Shape {
+public:
+	virtual void Show() = 0;
+};
+class Rectangle :public Shape {
+public:
+	Rectangle(double l,double w):length(l),width(w){}
+	void Show();
+private:
+	double length;
+	double width;
+};
+void Rectangle::Show() {
+	cout << "The length of the rectangle is: " << length << ",";
+	cout << "the width of the rectangle is: " << width << endl;
+}
+class Circle :public Shape {
+public:
+	Circle(double r):radium(r){}
+	void Show();
+private:
+	double radium;
+};
+void Circle::Show() {
+	cout << "The radium of the circle is: " << radium << endl;
+}
+
+int main() {
+	Shape* p;
+	Rectangle a(6.8, 3.2);
+	Circle b(5);
+	p = &a;
+	p->Show();
+	p = &b;
+	p->Show();
+	return 0;
+}
