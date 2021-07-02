@@ -83,3 +83,22 @@ int main() {
     Person person(1001, 30);
     cout << person;
 }*/
+
+//3、函数模板
+/*include<iostream>
+using namespace std;
+
+template<class Type>
+void Swap(Type& a, Type& b) {
+	Type c = b;
+	b = a;
+	a = c;
+}
+
+int main() {
+	int a = 15;
+	int b = 29;
+	Swap(a, b);
+	cout << a << " " << b << endl;
+	return 0;
+}*/
