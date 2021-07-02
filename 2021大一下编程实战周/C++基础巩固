@@ -102,3 +102,19 @@ int main() {
 	cout << a << " " << b << endl;
 	return 0;
 }*/
+
+//4、
+/*#include<iostream>
+using namespace std;
+
+void func() {
+	int a = 10;
+	throw a;
+}
+
+int main() {
+	cout << "普通输出" << endl;//第一种
+	cerr << "错误输出" << endl;//第二种：第一种和第二种的输出的颜色不一样
+	clog << "日志输出" << endl;//第三种：和第二种输出的颜色一样
+	return 0;
+}*/
