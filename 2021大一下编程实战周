@@ -1,0 +1,85 @@
+//1、友元类
+/*#include<iostream>
+using namespace std;
+
+class Building;
+//友元类
+class MyFriend {
+public:
+    //友元成员函数
+    void LookAtBedRoom(Building& building);
+    void PlayInBedRoom(Building& building);
+};
+class Building {
+    //全局函数做友元函数
+    friend void CleanBedRoom(Building& building);
+#if 0
+    //成员函数做友元函数
+    friend void MyFriend::LookAtBedRoom(Building& building);
+    friend void PlayInBedRoom(Building& building);
+#else
+    //友元类
+    friend class MyFriend;
+#endif
+public:
+    Building();
+public:
+    string mSittingRoom;
+private:
+    string mBedroom;
+};
+void MyFriend::LookAtBedRoom(Building& building) {
+    cout << "我的朋友参观" << building.mBedroom << endl;
+}
+void MyFriend::PlayInBedRoom(Building& building) {
+    cout << "我的朋友玩耍在" << building.mBedroom << endl;
+}
+
+//友元全局函数
+void CleanBedRoom(Building& building) {
+    cout << "友元全局函数访问" << building.mBedroom << endl;
+}
+
+Building::Building() {
+    this->mSittingRoom = "客厅";
+    this->mBedroom = "卧室";
+}
+
+int main() {
+
+    Building building;
+    MyFriend myfriend;
+
+    CleanBedRoom(building);
+    myfriend.LookAtBedRoom(building);
+    myfriend.PlayInBedRoom(building);
+
+    system("pause");
+    return EXIT_SUCCESS;
+}*/
+
+//2、
+//重载运算符
+/*#include<iostream>
+using namespace std;
+
+class Person {
+    friend ostream& operator<<(ostream& os, Person& person);
+public:
+    Person(int id, int age) {
+        mID = id;
+        mAge = age;
+    }
+private:
+    int mID;
+    int mAge;
+};
+ostream& operator<<(ostream& os, Person& person) {
+    os << "ID:" << person.mID << " Age:" << person.mAge;
+    return os;
+}
+
+int main() {
+    Person person(1001, 30);
+    cout << person;
+}*/
