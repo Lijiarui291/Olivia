@@ -1,0 +1,36 @@
+//STL中的set
+//begin() 　　 返回set容器的第一个元素的 地址
+//end() 　　　　 返回set容器的最后一个元素** 地址**
+//clear() 　　 删除set容器中的所有的元素
+//empty() 　　　 判断set容器是否为空
+//max_size() 　 返回set容器可能包含的元素最大个数
+//size() 　　　　 返回当前set容器中的元素个数
+//erase(it) 删除迭代器指针it处元素
+//insert(a) 插入某个元素
+//更多关set的用法详见:http://www.cnblogs.com/yaoyueduzhen/p/4536929.html
+
+#include<iostream>
+#include<set>
+using namespace std;
+
+int main() {
+	int k;
+	cin >> k;
+	set<int>s;
+	int num[101];
+	for (int i = 0;i < k;i++) {
+		cin >> num[i];
+		s.insert(num[i]);
+	}
+	cout << s.size() << endl;
+
+	while (!s.empty()) {
+		cout << *s.begin() << " ";
+		s.erase(s.begin());
+	}
+  //另一种遍历的方法：
+  //for (set<int>::iterator it = s.begin();it != s.end();++it) {
+		//cout << *it << " ";
+	//}
+	return 0;
+}
