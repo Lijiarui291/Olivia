@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	int long long n, m;
+	cin >> n;//指长
+	cin >> m;//指宽
+	int long long numSqr = 0;//正方形总数
+	int long long numRec = 0;//矩形总数
+	
+	for (int i = 0;i < n;i++) {
+		for (int j = 0;j < m;j++) {
+			if (i == j) {
+				numSqr += (n - i) * (m - j);
+			}
+			else {
+				numRec += (n - i) * (m - j);
+			}
+		}
+	}
+	cout << numSqr << " " << numRec;
+	return 0;
+}
